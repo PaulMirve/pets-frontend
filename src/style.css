@@ -1,0 +1,67 @@
+/*
+    $breakpoint argument choices:
+        - phone
+        - tab-port
+        - tab-land
+        - big-desktop
+
+        1em = 16px
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: #2b2d42;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.navbar {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+  align-items: center;
+}
+.navbar__title {
+  color: #ff006e;
+  font-family: "Pacifico", cursive;
+  font-size: 3.6rem;
+}
+.navbar__icon {
+  width: 2.5rem;
+  fill: #ff006e;
+  cursor: pointer;
+}
+.navbar__actions {
+  display: flex;
+  gap: 2rem;
+}
+.navbar__user {
+  background-color: #edf2f4;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #ff006e;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

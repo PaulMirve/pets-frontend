@@ -1,0 +1,37 @@
+.navbar {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    align-items: center;
+
+    &__title{
+        color: $color-primary;
+        font-family: $font-primary;
+        font-size: 3.6rem;
+    }
+
+    &__icon{
+        width: 2.5rem;
+        fill: $color-primary;
+        cursor: pointer;
+    }
+
+    &__actions{
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__user{
+        background-color: $color-white;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        width: 2.5em;
+        height: 2.5em;
+        font-weight: 800;
+        font-size: 1.4rem;
+        color: $color-primary;
+        cursor: pointer;
+    }
+}
