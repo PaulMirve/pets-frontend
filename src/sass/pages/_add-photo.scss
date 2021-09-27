@@ -1,0 +1,27 @@
+.add-photo {
+    display: grid;
+    place-items: center;
+    &__container {
+        display: grid;
+        place-items: center;
+        border: 3px solid $color-primary;
+        padding: 4rem;
+        border-radius: 5px;
+    }
+
+    &__custom {
+        background-color: $color-primary;
+        font-family: $font-primary;
+        color: white;
+        font-size: 2.4rem;
+        border-radius: 5px;
+        width: 100%;
+        padding: 0.2em 4em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__btn {
+        display: none;
+    }
+}

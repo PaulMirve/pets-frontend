@@ -40,7 +40,7 @@ body {
 }
 
 main {
-  padding: 15vh 8vw;
+  padding: 15vh 12vw;
 }
 
 body {
@@ -62,7 +62,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 1em 8vw;
+  padding: 1em 12vw;
   align-items: center;
   background-color: #2b2d42;
 }
@@ -128,6 +128,7 @@ body {
   padding: 2rem;
   width: 100%;
   color: #ff006e;
+  border-radius: 5px;
 }
 @media (max-width: 56.25em) {
   .card {
@@ -278,6 +279,7 @@ body {
   border: 3px solid #ff006e;
   height: 82vh;
   width: 100%;
+  border-radius: 5px;
 }
 
 .login {
@@ -288,6 +290,32 @@ body {
   color: red;
   text-align: center;
   font-size: 1.4rem;
+}
+
+.add-photo {
+  display: grid;
+  place-items: center;
+}
+.add-photo__container {
+  display: grid;
+  place-items: center;
+  border: 3px solid #ff006e;
+  padding: 4rem;
+  border-radius: 5px;
+}
+.add-photo__custom {
+  background-color: #ff006e;
+  font-family: "Pacifico", cursive;
+  color: white;
+  font-size: 2.4rem;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0.2em 4em;
+  text-align: center;
+  cursor: pointer;
+}
+.add-photo__btn {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

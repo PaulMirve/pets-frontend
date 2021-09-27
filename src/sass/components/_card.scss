@@ -10,6 +10,7 @@
     padding: 2rem;
     width: 100%;
     color: $color-primary;
+    border-radius: 5px;
 
     @include respond(tab-port) {
         grid-template-columns: none;
