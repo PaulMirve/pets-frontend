@@ -7,6 +7,7 @@ import User from '../../types/User';
 import IconLogoutOutline from '../../svg/IconLogoutOutline';
 import IconPersonCircleOutline from '../../svg/IconPersonCircleOutline';
 import IconAddCircleOutline from '../../svg/IconAddCircleOutline';
+import Menu from '../Menu/Menu';
 interface IProps {
 
 }
@@ -42,7 +43,7 @@ const Navbar: React.FC<IProps> = () => {
                     user ?
                         <div onClick={onAvatarClick} className="navbar__user">
                             {getInitials()}
-                            <div className={`navbar__menu ${menuOpen && 'navbar__menu--active'}`}>
+                            <Menu open={menuOpen}>
                                 <button className="navbar__menu-item">
                                     <IconPersonCircleOutline />
                                     Profile
@@ -51,7 +52,7 @@ const Navbar: React.FC<IProps> = () => {
                                     <IconLogoutOutline />
                                     Log out
                                 </button>
-                            </div>
+                            </Menu>
                         </div>
                         :
                         <>

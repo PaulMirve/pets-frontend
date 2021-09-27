@@ -2,4 +2,12 @@
     font-family: $font-primary;
     font-size: 4.2rem;
     color: $color-primary;
+
+    &--subtitle{
+        font-size: 1.8rem;
+    }
+
+    &--roboto{
+        font-family: $font-secondary;
+    }
 }

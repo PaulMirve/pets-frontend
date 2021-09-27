@@ -51,25 +51,6 @@
         cursor: pointer;
     }
 
-    &__menu{
-        position: absolute;
-        top: 2.5rem;
-        left: 2.5rem;
-        background-color: $color-white;
-        padding: 1em;
-        border-radius: 5px;
-        width: 15rem;
-        text-align: center;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.2s ease-in;
-
-        &--active{
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-
     &__menu-item{
         display: flex;
         align-items: center;

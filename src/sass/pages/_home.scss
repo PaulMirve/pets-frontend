@@ -1,5 +1,25 @@
-.landing__layout{
-    & > *{
-        margin-top: 5rem;
+.landing {
+    display: grid;
+    grid-template-columns: 1fr 0.3fr;
+    gap: 5rem;
+    &__layout {
+        height: 82vh;
+        overflow-y: scroll;
+        &>*:not(:first-child) {
+            margin-top: 5rem;
+        }
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    &__news{
+        padding: 2rem;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        border: 3px solid $color-primary;
+        height: 82vh;
+        width: 100%;
     }
 }
