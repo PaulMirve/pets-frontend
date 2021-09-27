@@ -26,8 +26,17 @@ html {
 body {
     box-sizing: border-box;
     background-color: $color-dark;
+    height: 90vh;
+    overflow-y: hidden;
+    @include respond(tab-land) {
+        padding: 1vw;
+    }
 }
 
 main {
     padding: 15vh $body-padding;
+
+    @include respond(tab-land) {
+        padding: 15vh 1vw;
+    }
 }

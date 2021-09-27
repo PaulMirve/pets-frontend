@@ -1,11 +1,13 @@
 .card {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    // grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto) 1fr;
     grid-template-areas:
-        "img img username username"
-        "img img actions actions"
-        "img img description description";
+        "img"
+        "username"
+        "actions"
+        "description";
     border: 3px solid $color-primary;
     padding: 2rem;
     width: 100%;
@@ -30,8 +32,7 @@
 
     &__username {
         grid-area: username;
-        font-size: 4.2rem;
-        text-align: center;
+        font-size: 2.4rem;
     }
 
     &__description {
@@ -42,27 +43,26 @@
         grid-area: actions;
         display: flex;
         cursor: pointer;
-        justify-content: center;
-        gap: 10rem;
+        gap: 5rem;
     }
 
     &__action-box {
         display: flex;
-        align-items: center;
         gap: 1rem;
     }
 
     &__icon-number {
-        font-size: 2.4rem;
+        font-size: 1.4rem;
     }
 
     &__icon {
         fill: $color-primary;
-        width: 4rem;
+        width: 2rem;
     }
 
     &__description {
-        font-size: 3.6rem;
-        text-align: center;
+        font-size: 1.8rem;
+        word-break: break-word;
+        width: 100%;
     }
 }

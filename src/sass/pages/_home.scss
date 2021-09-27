@@ -1,20 +1,26 @@
 .landing {
     display: grid;
-    grid-template-columns: 1fr 0.3fr;
+    grid-template-columns: 1fr 0.5fr;
     gap: 5rem;
+
+    @include respond(tab-land) {
+        grid-template-columns: none;
+    }
+
     &__layout {
         height: 82vh;
         overflow-y: scroll;
-        &>*:not(:first-child) {
+
+        & > *:not(:first-child) {
             margin-top: 5rem;
         }
 
-        &::-webkit-scrollbar{
+        &::-webkit-scrollbar {
             display: none;
         }
     }
 
-    &__news{
+    &__news {
         padding: 2rem;
         display: grid;
         grid-template-rows: repeat(2, 1fr);
@@ -22,5 +28,9 @@
         height: 82vh;
         width: 100%;
         border-radius: 5px;
+
+        @include respond(tab-land) {
+            display: none;
+        }
     }
 }

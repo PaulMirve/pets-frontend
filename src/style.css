@@ -37,10 +37,22 @@ html {
 body {
   box-sizing: border-box;
   background-color: #2b2d42;
+  height: 90vh;
+  overflow-y: hidden;
+}
+@media (max-width: 75em) {
+  body {
+    padding: 1vw;
+  }
 }
 
 main {
-  padding: 15vh 12vw;
+  padding: 15vh 25vw;
+}
+@media (max-width: 75em) {
+  main {
+    padding: 15vh 1vw;
+  }
 }
 
 body {
@@ -62,7 +74,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 1em 12vw;
+  padding: 1em 25vw;
   align-items: center;
   background-color: #2b2d42;
 }
@@ -121,9 +133,9 @@ body {
 
 .card {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(2, auto) 1fr;
-  grid-template-areas: "img img username username" "img img actions actions" "img img description description";
+  grid-template-areas: "img" "username" "actions" "description";
   border: 3px solid #ff006e;
   padding: 2rem;
   width: 100%;
@@ -144,8 +156,7 @@ body {
 }
 .card__username {
   grid-area: username;
-  font-size: 4.2rem;
-  text-align: center;
+  font-size: 2.4rem;
 }
 .card__description {
   grid-area: description;
@@ -154,24 +165,23 @@ body {
   grid-area: actions;
   display: flex;
   cursor: pointer;
-  justify-content: center;
-  gap: 10rem;
+  gap: 5rem;
 }
 .card__action-box {
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 .card__icon-number {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
 }
 .card__icon {
   fill: #ff006e;
-  width: 4rem;
+  width: 2rem;
 }
 .card__description {
-  font-size: 3.6rem;
-  text-align: center;
+  font-size: 1.8rem;
+  word-break: break-word;
+  width: 100%;
 }
 
 .form {
@@ -259,8 +269,13 @@ body {
 
 .landing {
   display: grid;
-  grid-template-columns: 1fr 0.3fr;
+  grid-template-columns: 1fr 0.5fr;
   gap: 5rem;
+}
+@media (max-width: 75em) {
+  .landing {
+    grid-template-columns: none;
+  }
 }
 .landing__layout {
   height: 82vh;
@@ -280,6 +295,11 @@ body {
   height: 82vh;
   width: 100%;
   border-radius: 5px;
+}
+@media (max-width: 75em) {
+  .landing__news {
+    display: none;
+  }
 }
 
 .login {
