@@ -3,6 +3,11 @@
     place-items: center;
     &__container {
         display: grid;
+        grid-template-columns: repeat(5, 1fr );
+        grid-template-areas:
+            "img img description description description"
+            "custom custom description description description"
+            "upload upload upload upload upload";
         place-items: center;
         border: 3px solid $color-primary;
         padding: 4rem;
@@ -10,6 +15,7 @@
     }
 
     &__custom {
+        grid-area: custom;
         background-color: $color-primary;
         font-family: $font-primary;
         color: white;
@@ -21,7 +27,28 @@
         cursor: pointer;
     }
 
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        grid-area: img;
+        fill: $color-primary;
+        color: $color-primary;
+    }
+
     &__btn {
+        grid-area: btn;
         display: none;
+    }
+
+    &__upload {
+        grid-area: upload;
+    }
+
+    &__description {
+        grid-area: description;
+        margin-left: 1rem;
+        width: 100%;
+        height: 100%;
     }
 }

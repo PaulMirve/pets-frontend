@@ -21,4 +21,14 @@
             color: $color-grey;
         }
     }
+
+    &__textarea{
+        border-radius: 5px;
+        border: none;
+        background-color: $color-white;
+        outline: none;
+        font-size: 1.8rem;
+        padding: 1em;
+        font-family: $font-secondary;
+    }
 }

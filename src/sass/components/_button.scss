@@ -32,4 +32,12 @@
             background-color: rgba($color-primary-2, 0.2);
         }
     }
+
+    &:disabled{
+        background-color: rgba($color-primary, 0.6);
+    }
+
+    &:hover:disabled{
+        transform: scale(1);
+    }
 }
