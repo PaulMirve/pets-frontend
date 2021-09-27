@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { ForwardRefRenderFunction, InputHTMLAttributes, useState } from 'react'
 
-const Form = () => {
+interface IProps extends InputHTMLAttributes<HTMLFormElement> {
+    style?: React.CSSProperties,
+    className?: string,
+}
+
+const Form: ForwardRefRenderFunction<HTMLFormElement, IProps> = ({ children, style, className = "", ...rest }) => {
     const [name, setName] = useState<string>("");
     return (
-        <form className="form" onSubmit={() => console.log('Hola')}>
-            <input className="form__input" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
-            <input className="form__input" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Last name" />
-            <input className="form__input" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Username" />
-            <input className="form__input" type="email" value={name} onChange={e => setName(e.target.value)} placeholder="Email" />
+        <form className={`form ${className}`} style={style} {...rest}>
+            {children}
         </form>
     )
 }

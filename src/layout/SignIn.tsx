@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Button from '../components/Button/Button';
+import Form from '../components/Form/Form';
+import TextInput from '../components/Form/TextInput';
 import Heading from '../components/Heading/Heading';
 
 const SignIn = () => {
@@ -9,14 +11,14 @@ const SignIn = () => {
     const [username, setUsername] = useState<string>("");
     return (
         <main className="login">
-            <form className="form" onSubmit={() => console.log('Hola')}>
+            <Form onSubmit={() => window.alert('Hola')}>
                 <Heading className="text-align-center">Sing In</Heading>
-                <input className="form__input fullwidth" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
-                <input className="form__input fullwidth" type="text" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last name" />
-                <input className="form__input fullwidth" type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
-                <input className="form__input fullwidth" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
-                <Button className="fullwidth">Sign In</Button>
-            </form>
+                <TextInput name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
+                <TextInput name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last name" />
+                <TextInput name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
+                <TextInput name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
+                <Button fullwidth>Sign In</Button>
+            </Form>
         </main>
     )
 }
