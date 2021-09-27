@@ -1,9 +1,22 @@
 .navbar {
-    position: sticky;
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1em 2em;
+    padding: 1em $body-padding;
     align-items: center;
+    background-color: $color-dark;
+
+    &__container{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__logo{
+        width: 4rem;
+        height: 4rem;
+    }
 
     &__title{
         color: $color-primary;
