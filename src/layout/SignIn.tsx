@@ -20,11 +20,11 @@ const SignIn = () => {
                 dispatch(postUser({ name, lastName, email, username, password }))
             }}>
                 <Heading centered>Sing In</Heading>
-                <TextInput name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
-                <TextInput name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last name" />
-                <TextInput name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
-                <TextInput type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
-                <TextInput type="password" name="password" value={password} onChange={e => setPasword(e.target.value)} placeholder="Password" />
+                <TextInput fullwidth name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
+                <TextInput fullwidth name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last name" />
+                <TextInput fullwidth name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />
+                <TextInput fullwidth type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
+                <TextInput fullwidth type="password" name="password" value={password} onChange={e => setPasword(e.target.value)} placeholder="Password" />
                 <Button fullwidth>Sign In</Button>
             </Form>
         </main >

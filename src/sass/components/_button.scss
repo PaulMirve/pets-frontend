@@ -27,5 +27,9 @@
         background-color: transparent;
         border: 2px solid $color-primary;
         color: $color-primary;
+
+        &:hover{
+            background-color: rgba($color-primary-2, 0.2);
+        }
     }
 }

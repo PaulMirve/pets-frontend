@@ -1,4 +1,10 @@
 .login{
     display: grid;
     place-items: center;
+
+    &__error{
+        color: red;
+        text-align: center;
+        font-size: 1.4rem;
+    }
 }
