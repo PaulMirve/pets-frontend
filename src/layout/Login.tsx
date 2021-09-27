@@ -17,7 +17,7 @@ const Login = () => {
         try {
             await dispatch(login(username, password));
         } catch (error: any) {
-
+            setError(true);
         }
 
     }
