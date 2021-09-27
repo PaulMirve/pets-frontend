@@ -1,0 +1,20 @@
+.btn {
+    font-size: 2.4rem;
+    padding: 0.2em 4em;
+    background-color: $color-primary;
+    color: $color-white;
+    font-family: $font-primary;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in, transform 0.2s ease-in;
+
+    &:hover{
+        background-color: $color-primary-2;
+        transform: scale(1.05);
+    }
+
+    &:active{
+        transform: scale(1.02);
+    }
+}

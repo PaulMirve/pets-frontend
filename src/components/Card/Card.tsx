@@ -10,7 +10,7 @@ const Card: React.FC<IProps> = ({ post }) => {
     return (
         <div className="card">
             <img src={post.img} alt={post._id} className="card__img" />
-            <h5 className="card__username">paulmirve</h5>
+            <h5 className="card__username">{post.user.username}</h5>
             <div className="card__actions">
                 <div className="card__action-box">
                     <IconHeartOutline className="card__icon" />
