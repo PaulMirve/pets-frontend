@@ -1,4 +1,5 @@
 import React from 'react';
+import history from '../../history';
 import IconHome from '../../svg/IconHome';
 import IconLogo from '../../svg/IconLogo';
 interface IProps {
@@ -8,7 +9,7 @@ interface IProps {
 const Navbar: React.FC<IProps> = () => {
     return (
         <nav className="navbar">
-            <div className="navbar__container">
+            <div onClick={() => history.push('/')} className="navbar__container">
                 <IconLogo className="navbar__logo" />
                 <h3 className="navbar__title">Pets</h3>
             </div>
