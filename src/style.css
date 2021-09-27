@@ -82,8 +82,9 @@ body {
   font-size: 3.6rem;
 }
 .navbar__icon {
-  width: 2.5rem;
+  width: 3rem;
   fill: #ff006e;
+  color: #ff006e;
   cursor: pointer;
 }
 .navbar__actions {

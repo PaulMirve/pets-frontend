@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import history from '../../history';
-import IconHome from '../../svg/IconHome';
 import IconLogo from '../../svg/IconLogo';
 import { useAppSelector } from '../../hooks/hooks';
 import Button from '../Button/Button';
 import User from '../../types/User';
 import IconLogoutOutline from '../../svg/IconLogoutOutline';
 import IconPersonCircleOutline from '../../svg/IconPersonCircleOutline';
+import IconAddCircleOutline from '../../svg/IconAddCircleOutline';
 interface IProps {
 
 }
@@ -37,7 +37,7 @@ const Navbar: React.FC<IProps> = () => {
                 <h3 className="navbar__title">Pets</h3>
             </div>
             <div className="navbar__actions">
-                <IconHome className="navbar__icon" />
+                <IconAddCircleOutline className="navbar__icon" />
                 {
                     user ?
                         <div onClick={onAvatarClick} className="navbar__user">
