@@ -10,7 +10,9 @@ interface IProps {
 const Card: React.FC<IProps> = ({ post }) => {
     return (
         <div className="card">
-            <img src={post.img} alt={post._id} className="card__img" />
+            <figure className="card__frame">
+                <img src={post.img} alt={post._id} className="card__img" />
+            </figure>
             <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
             <div className="card__actions">
                 <div className="card__action-box">
