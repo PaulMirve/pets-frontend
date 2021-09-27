@@ -1,23 +1,27 @@
 .profile {
-    display: grid;
-    place-items: center;
-    padding: 15vh 0;
-    $images-width: 300px;
+    padding: 15vh 12vw;
     &__grid {
-        width: 70%;
+        $ratio: 400px;
         display: grid;
-        grid-template-columns: repeat(4, minmax($images-width, 800px));
-        gap: 2rem;
-
-        @include respond(tab-land){
-            grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax($ratio, 1fr));
+        grid-gap: 1rem;
+        & > div {
+            background: $color-white;
+            display: grid;
+            place-items: center;
+            &::before {
+                // for apsect ratio
+                content: "";
+                display: block;
+                padding-bottom: 100%;
+                grid-area: 1 / 1 / 2 / 2;
+            }
+            & img {
+                width: 100%;
+                height: $ratio;
+                object-fit: cover;
+                grid-area: 1 / 1 / 2 / 2;
+            }
         }
-    }
-
-    &__img {
-        width: 100%;
-        height: $images-width;
-        object-fit: cover;
-        background-color: $color-white;
     }
 }

@@ -28,7 +28,7 @@ const Profile: React.FC<IProps> = ({ }) => {
             <div className="profile__grid">
                 {
                     posts.map(post => {
-                        return <img key={post.public_id} src={post.img} alt={post.public_id} className="profile__img" />
+                        return <div key={post.public_id}><img src={post.img} alt={post.public_id} className="profile__img" /></div>
                     })
                 }
             </div>
