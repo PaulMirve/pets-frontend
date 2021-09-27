@@ -1,4 +1,5 @@
 import React from 'react'
+import history from '../../history';
 import Post from '../../interfaces/Post';
 import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline';
 import IconHeartOutline from '../../svg/IconHeartOutline';
@@ -10,7 +11,7 @@ const Card: React.FC<IProps> = ({ post }) => {
     return (
         <div className="card">
             <img src={post.img} alt={post._id} className="card__img" />
-            <h5 className="card__username">{post.user.username}</h5>
+            <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
             <div className="card__actions">
                 <div className="card__action-box">
                     <IconHeartOutline className="card__icon" />

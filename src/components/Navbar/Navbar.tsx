@@ -46,7 +46,7 @@ const Navbar: React.FC<IProps> = () => {
                         <div onClick={onAvatarClick} className="navbar__user">
                             {getInitials()}
                             <Menu open={menuOpen}>
-                                <button className="navbar__menu-item">
+                                <button onClick={() => history.push(`/u/${user?.username}`)} className="navbar__menu-item">
                                     <IconPersonCircleOutline />
                                     {t("profile")}
                                 </button>

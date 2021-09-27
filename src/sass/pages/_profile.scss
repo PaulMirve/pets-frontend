@@ -1,0 +1,23 @@
+.profile {
+    display: grid;
+    place-items: center;
+    padding: 15vh 0;
+    $images-width: 300px;
+    &__grid {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax($images-width, 800px));
+        gap: 2rem;
+
+        @include respond(tab-land){
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: $images-width;
+        object-fit: cover;
+        background-color: $color-white;
+    }
+}

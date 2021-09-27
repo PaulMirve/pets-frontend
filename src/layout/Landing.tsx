@@ -11,16 +11,18 @@ const Landing = () => {
             <div className="landing__layout">
                 {
                     state.posts.map(post => {
-                        return <Card post={post} key={post._id} />
+                        return <Card post={post} key={post.public_id} />
                     })
                 }
             </div>
-            <div className="landing__news">
-                <div className="landing__newer">
-                    <Heading type="subtitle">{t("landing.new_posts")}</Heading>
-                </div>
-                <div className="landing__likes">
-                    <Heading type="subtitle">{t("landing.most_liked_photos")}</Heading>
+            <div className="landing__news-container">
+                <div className="landing__news">
+                    <div className="landing__newer">
+                        <Heading type="subtitle">{t("landing.new_posts")}</Heading>
+                    </div>
+                    <div className="landing__likes">
+                        <Heading type="subtitle">{t("landing.most_liked_photos")}</Heading>
+                    </div>
                 </div>
             </div>
         </main>

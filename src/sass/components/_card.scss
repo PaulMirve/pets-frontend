@@ -23,6 +23,7 @@
     &__username {
         grid-area: username;
         font-size: 2.4rem;
+        cursor: pointer;
     }
 
     &__description {

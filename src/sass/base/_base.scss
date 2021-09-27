@@ -26,8 +26,7 @@ html {
 body {
     box-sizing: border-box;
     background-color: $color-dark;
-    height: 90vh;
-    overflow-y: hidden;
+
     @include respond(tab-land) {
         padding: 1vw;
     }
