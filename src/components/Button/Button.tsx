@@ -1,13 +1,32 @@
-import React from 'react'
-interface IProps {
+import React, { InputHTMLAttributes } from 'react'
+interface IProps extends InputHTMLAttributes<HTMLButtonElement> {
     children?: React.ReactNode,
     style?: React.CSSProperties,
     className?: string,
-    fullwidth?: boolean
+    fullwidth?: boolean,
+    type?: "primary" | "small",
+    variant?: "filled" | "outlined"
 }
-const Button: React.FC<IProps> = ({ children, style, className = "", fullwidth }) => {
+const Button: React.FC<IProps> = ({ children, style, className = "", fullwidth, type, variant, ...rest }) => {
+    const getType = () => {
+        switch (type) {
+            case "small":
+                return "btn--small"
+            default:
+                return "";
+        }
+    }
+
+    const getVariant = () => {
+        switch (variant) {
+            case "outlined":
+                return "btn--outlined"
+            default:
+                return "";
+        }
+    }
     return (
-        <button className={`btn ${className} ${fullwidth && 'fullwidth'}`} style={style}>
+        <button className={`btn ${getType()} ${getVariant()} ${className} ${fullwidth ? 'fullwidth' : ''}`} style={style} {...rest}>
             {children}
         </button>
     )

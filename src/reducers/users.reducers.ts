@@ -13,11 +13,15 @@ const userSlice = createSlice({
         login: (state, action) => {
             return action.payload;
         },
+        isAuthenticated: (state, action) => {
+            return action.payload;
+        },
     }
 });
 
 export const {
     postUser,
-    login
+    login,
+    isAuthenticated
 } = userSlice.actions
 export default userSlice.reducer

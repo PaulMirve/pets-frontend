@@ -17,4 +17,15 @@
     &:active{
         transform: scale(1.02);
     }
+
+    &--small{
+        font-size: 1.4rem;
+        padding: 0 2em;
+    }
+
+    &--outlined{
+        background-color: transparent;
+        border: 2px solid $color-primary;
+        color: $color-primary;
+    }
 }

@@ -197,6 +197,15 @@ body {
 .btn:active {
   transform: scale(1.02);
 }
+.btn--small {
+  font-size: 1.4rem;
+  padding: 0 2em;
+}
+.btn--outlined {
+  background-color: transparent;
+  border: 2px solid #ff006e;
+  color: #ff006e;
+}
 
 .heading {
   font-family: "Pacifico", cursive;
