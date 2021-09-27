@@ -12,7 +12,7 @@ const SignIn = () => {
     return (
         <main className="login">
             <Form onSubmit={() => window.alert('Hola')}>
-                <Heading className="text-align-center">Sing In</Heading>
+                <Heading centered>Sing In</Heading>
                 <TextInput name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
                 <TextInput name="lastName" value={lastName} onChange={e => setLastName(e.target.value)} placeholder="Last name" />
                 <TextInput name="username" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" />

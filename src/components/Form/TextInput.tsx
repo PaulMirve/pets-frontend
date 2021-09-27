@@ -11,7 +11,6 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 const TextInput: ForwardRefRenderFunction<HTMLInputElement, IProps> = ({ name, style, className = "", placeholder, fullwidth, ...otherProps }, ref) => {
     return (
         <input
-            type="text"
             className={`form__input ${className} ${fullwidth && 'fullwidth'}`}
             style={style}
             placeholder={placeholder}

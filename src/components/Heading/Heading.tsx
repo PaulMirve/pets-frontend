@@ -4,10 +4,11 @@ interface IProps {
     style?: React.CSSProperties,
     className?: string,
     children?: React.ReactNode,
-    type?: "primary" | "secondary"
+    type?: "primary" | "secondary",
+    centered?: boolean
 }
 
-const Heading: React.FC<IProps> = ({ style, className = "", children, type }) => {
+const Heading: React.FC<IProps> = ({ style, className = "", children, type, centered }) => {
 
     const getType = () => {
         switch (type) {
@@ -17,7 +18,7 @@ const Heading: React.FC<IProps> = ({ style, className = "", children, type }) =>
     }
 
     return (
-        <h1 className={`heading ${getType()} ${className}`} style={style}>
+        <h1 className={`heading ${getType()} ${className} ${centered && 'text-align-center'}`} style={style}>
             {children}
         </h1>
     )
