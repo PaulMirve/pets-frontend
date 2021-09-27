@@ -8,11 +8,13 @@ import IconLogoutOutline from '../../svg/IconLogoutOutline';
 import IconPersonCircleOutline from '../../svg/IconPersonCircleOutline';
 import IconAddCircleOutline from '../../svg/IconAddCircleOutline';
 import Menu from '../Menu/Menu';
+import { useTranslation } from 'react-i18next';
 interface IProps {
 
 }
 
 const Navbar: React.FC<IProps> = () => {
+    const { t } = useTranslation();
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     let user: User | null = useAppSelector(state => state.user);
 
@@ -38,7 +40,7 @@ const Navbar: React.FC<IProps> = () => {
                 <h3 className="navbar__title">Pets</h3>
             </div>
             <div className="navbar__actions">
-                <IconAddCircleOutline onClick={()=>history.push('/add')} className="navbar__icon" />
+                <IconAddCircleOutline onClick={() => history.push('/add')} className="navbar__icon" />
                 {
                     user ?
                         <div onClick={onAvatarClick} className="navbar__user">
@@ -46,18 +48,18 @@ const Navbar: React.FC<IProps> = () => {
                             <Menu open={menuOpen}>
                                 <button className="navbar__menu-item">
                                     <IconPersonCircleOutline />
-                                    Profile
+                                    {t("profile")}
                                 </button>
                                 <button onClick={onLogOut} className="navbar__menu-item">
                                     <IconLogoutOutline />
-                                    Log out
+                                    {t("logout")}
                                 </button>
                             </Menu>
                         </div>
                         :
                         <>
-                            <Button onClick={() => history.push('/login')} variant="outlined" type="small">Login</Button>
-                            <Button onClick={() => history.push('/signin')} variant="outlined" type="small">Sign In</Button>
+                            <Button onClick={() => history.push('/login')} variant="outlined" type="small">{t("login")}</Button>
+                            <Button onClick={() => history.push('/signin')} variant="outlined" type="small">{t("sign_in")}</Button>
                         </>
                 }
             </div>

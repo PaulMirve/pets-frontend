@@ -1,0 +1,19 @@
+{
+    "landing": {
+        "new_posts": "New posts",
+        "most_liked_photos": "Most liked photos"
+    },
+    "add_photo":{
+        "add_button": "Add photo",
+        "upload_button": "Upload photo"
+    },
+    "profile": "Perfil",
+    "logout": "Log out",
+    "username": "Username",
+    "password": "Password",
+    "name": "Name",
+    "last_name": "Last name",
+    "email": "Email",
+    "login": "Login",
+    "sign_in": "Sign In"
+}
