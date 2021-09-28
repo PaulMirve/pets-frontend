@@ -15,7 +15,7 @@ interface RouteParams {
     username: string
 }
 
-const Profile: React.FC<IProps> = ({ }) => {
+const Profile: React.FC<IProps> = () => {
     let { username }: RouteParams = useParams();
     const [posts, setPosts] = useState<Post[]>([]);
     const [open, setOpen] = useState<boolean>(false);

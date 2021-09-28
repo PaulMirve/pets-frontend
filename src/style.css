@@ -146,6 +146,7 @@ body {
   background: #edf2f4;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 .card__frame::before {
   content: "";

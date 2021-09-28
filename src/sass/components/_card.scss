@@ -17,6 +17,7 @@
         background: $color-white;
         display: grid;
         place-items: center;
+        cursor: pointer;
 
         &::before {
             // for apsect ratio

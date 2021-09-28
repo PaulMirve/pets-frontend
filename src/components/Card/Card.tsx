@@ -1,23 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import history from '../../history';
 import Post from '../../interfaces/Post';
 import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline';
 import IconHeartOutline from '../../svg/IconHeartOutline';
+import { useAppSelector } from '../../hooks/hooks';
+import User from '../../types/User';
+import IconHeart from '../../svg/IconHeart';
+import api from '../../api/api';
 
 interface IProps {
     post: Post
 }
 const Card: React.FC<IProps> = ({ post }) => {
+    let user: User | null = useAppSelector(state => state.user);
+    const [likesCount, setLikesCount] = useState<number>(post.likeCount);
+    const [postIsLiked, setPostIsLiked] = useState<boolean>(post.likes.some(_user => _user.username === user?.username));
+
+    const onLikeClick = async () => {
+        api.put<User>(`/api/posts/like/${post.public_id}`, {}, {
+            headers: {
+                "Authorization": localStorage.getItem('user')
+            }
+        });
+        if (postIsLiked) {
+            setLikesCount(likesCount - 1);
+            setPostIsLiked(false);
+        } else {
+            setLikesCount(likesCount + 1);
+            setPostIsLiked(true);
+        }
+    }
+
     return (
         <div className="card">
-            <figure className="card__frame">
+            <figure onDoubleClick={onLikeClick} className="card__frame">
                 <img src={post.img} alt={post._id} className="card__img" />
             </figure>
             <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
             <div className="card__actions">
                 <div className="card__action-box">
-                    <IconHeartOutline className="card__icon" />
-                    <h5 className="card__icon-number">{post.likeCount}</h5>
+                    {postIsLiked ? <IconHeart onClick={onLikeClick} className="card__icon" /> : <IconHeartOutline onClick={onLikeClick} className="card__icon" />}
+                    <h5 className="card__icon-number">{likesCount}</h5>
                 </div>
                 <div className="card__action-box">
                     <IconChatBubbleElipsesOutline className="card__icon" />
