@@ -5,7 +5,8 @@
     },
     "add_photo":{
         "add_button": "Agregar photo",
-        "upload_button": "Subir foto"
+        "upload_button": "Subir foto",
+        "description": "Añade una descripción"
     },
     "profile": "Perfil",
     "logout": "Salir",

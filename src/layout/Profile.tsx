@@ -27,7 +27,7 @@ const Profile: React.FC<IProps> = ({ }) => {
             setPosts(posts.data);
         })()
     }, [])
-    console.log(postSelected)
+
     return (
         <div className="profile">
             <Heading centered>{username}</Heading>
