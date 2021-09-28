@@ -428,9 +428,16 @@ body {
 .profile {
   padding: 15vh 12vw;
 }
+@media (max-width: 56.25em) {
+  .profile {
+    display: grid;
+    place-items: center;
+    padding: 15vh 1rem;
+  }
+}
 .profile__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 1rem;
 }
 .profile__grid > div {
@@ -456,6 +463,11 @@ body {
   grid-template-columns: 1fr minmax(min-content, 25rem);
   place-items: center;
   height: 100%;
+}
+@media (max-width: 56.25em) {
+  .profile__modal {
+    grid-template-columns: 1fr;
+  }
 }
 .profile__modal img {
   width: 100%;

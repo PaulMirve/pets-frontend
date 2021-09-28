@@ -1,8 +1,14 @@
 .profile {
     padding: 15vh 12vw;
 
+    @include respond(tab-port){
+        display: grid;
+        place-items: center;
+        padding: 15vh 1rem;
+    }
+
     &__grid {
-        $ratio: 400px;
+        $ratio: 300px;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax($ratio, 1fr));
         grid-gap: 1rem;
@@ -36,34 +42,14 @@
         place-items: center;
         height: 100%;
 
+        @include respond(tab-port){
+            grid-template-columns: 1fr;
+        }
+
         & img {
             width: 100%;
             height: 100%;
         }
-        // display: grid;
-        // grid-template-columns: minmax(400px, 1fr) 0.5fr;
-        // grid-template-rows: 1fr;
-        // height: 100%;
-
-        // &__frame {
-        //     display: grid;
-        //     place-items: center;
-
-        //     &::before {
-        //         // for apsect ratio
-        //         content: "";
-        //         display: block;
-        //         padding-bottom: 100%;
-        //         grid-area: 1 / 1 / 2 / 2;
-        //     }
-        // }
-
-        // &__img {
-        //     width: 100%;
-        //     height: 100%;
-        //     object-fit: cover;
-        //     grid-area: 1 / 1 / 2 / 2;
-        // }
 
         &__content {
             align-self: start;
