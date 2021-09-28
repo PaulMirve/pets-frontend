@@ -24,10 +24,21 @@ const Profile: React.FC<IProps> = ({ }) => {
     useEffect(() => {
         (async () => {
             const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
+            console.log(posts.data)
             setPosts(posts.data);
         })()
-    }, [])
+    }, [username]);
 
+    const onModalOpen = (post: Post) => {
+        setOpen(true);
+        setPostSelected(post);
+        window.history.pushState("", "", `/p/${post.public_id}`);
+    }
+
+    const onModalClose = () => {
+        setOpen(false);
+        window.history.pushState("", "", `/u/${username}`);
+    }
     return (
         <div className="profile">
             <Heading centered>{username}</Heading>
@@ -36,16 +47,13 @@ const Profile: React.FC<IProps> = ({ }) => {
                     posts.map(post => {
                         return <div
                             key={post.public_id}
-                            onClick={() => {
-                                setOpen(true);
-                                setPostSelected(post);
-                            }}>
+                            onClick={() => onModalOpen(post)}>
                             <img src={post.img} alt={post.public_id} className="profile__img" />
                         </div>
                     })
                 }
             </div>
-            <Modal visible={open} onClose={() => setOpen(false)}>
+            <Modal visible={open} onClose={onModalClose}>
                 <div className="profile__modal">
                     <figure className="profile__modal__frame">
                         <img className="profile__modal__img" src={postSelected?.img} alt={postSelected?.public_id} />

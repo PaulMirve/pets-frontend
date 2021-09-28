@@ -76,6 +76,7 @@ body {
   padding: 1em 25vw;
   align-items: center;
   background-color: #2b2d42;
+  z-index: 99;
 }
 .navbar__container {
   display: flex;
@@ -282,6 +283,7 @@ body {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.2s ease-in;
+  z-index: 10;
 }
 .menu--active {
   visibility: visible;
@@ -353,6 +355,7 @@ body {
 }
 .landing__news {
   position: fixed;
+  z-index: 1;
   padding: 2rem;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
