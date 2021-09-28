@@ -55,7 +55,24 @@ const Profile: React.FC<IProps> = ({ }) => {
             </div>
             <Modal visible={open} onClose={onModalClose}>
                 <div className="profile__modal">
-                    <figure className="profile__modal__frame">
+                    <img className="profile__modal__img" src={postSelected?.img} alt={postSelected?.public_id} />
+                    <div className="profile__modal__content">
+                        <Heading centered type="subtitle">{postSelected?.user.username}</Heading>
+                        <div className="profile__modal__icons">
+                            <div className="profile__modal__icon-box">
+                                <IconHeartOutline />
+                                {postSelected?.likeCount}
+                            </div>
+                            <div className="profile__modal__icon-box">
+                                <IconChatBubbleElipsesOutline />
+                                9
+                            </div>
+                        </div>
+                        <p className="profile__modal__description">
+                            {postSelected?.description}
+                        </p>
+                    </div>
+                    {/* <figure className="profile__modal__frame">
                         <img className="profile__modal__img" src={postSelected?.img} alt={postSelected?.public_id} />
                     </figure>
                     <div className="profile__modal__content">
@@ -73,7 +90,7 @@ const Profile: React.FC<IProps> = ({ }) => {
                         <p className="profile__modal__description">
                             {postSelected?.description}
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </Modal>
         </div>
