@@ -45,7 +45,7 @@ const Card: React.FC<IProps> = ({ post }) => {
                 </div>
                 <div className="card__action-box">
                     <IconChatBubbleElipsesOutline className="card__icon" />
-                    <h5 className="card__icon-number">{9}</h5>
+                    <h5 className="card__icon-number">{post.comments.length}</h5>
                 </div>
             </div>
             <div className="card__description">{post.description}</div>

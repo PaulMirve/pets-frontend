@@ -341,17 +341,25 @@ body {
 .comment-section__text-input::placeholder {
   color: rgba(108, 117, 125, 0.6);
 }
-.comment-section__form-group {
-  position: relative;
-}
-.comment-section__form-group__icon {
-  width: 2rem;
+.comment-section__button {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  fill: #ff006e;
   cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.comment-section__see-more {
+  cursor: pointer;
+}
+.comment-section__icon {
+  width: 2rem;
+  fill: #ff006e;
+}
+.comment-section__form-group {
+  position: relative;
 }
 
 .comment {

@@ -28,7 +28,7 @@ const Login = () => {
         <main className="login">
             <Form onSubmit={onFormSubmit}>
                 <Heading centered>{t("login")}</Heading>
-                {error && <p className="login__error">Incorrect username or password</p>}
+                {error && <p className="login__error">{t("login_page.error")}</p>}
                 <TextInput fullwidth value={username} onChange={e => setUsername(e.target.value)} name="username" placeholder={t("username")} />
                 <TextInput fullwidth value={password} onChange={e => setPassword(e.target.value)} type="password" name="password" placeholder={t("password")} />
                 <Button fullwidth>Log In</Button>

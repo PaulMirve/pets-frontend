@@ -3,10 +3,16 @@
         "new_posts": "New posts",
         "most_liked_photos": "Most liked photos"
     },
-    "add_photo":{
+    "add_photo": {
         "add_button": "Add photo",
         "upload_button": "Upload photo",
         "description": "Add a description"
+    },
+    "comment_section": {
+        "see_more": "See more..."
+    },
+    "login_page": {
+        "error": "Invalid username or password"
     },
     "profile": "Profile",
     "logout": "Log out",

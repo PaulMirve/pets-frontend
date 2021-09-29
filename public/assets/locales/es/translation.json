@@ -3,10 +3,16 @@
         "new_posts": "Nuevas publicaciones",
         "most_liked_photos": "Nuevas publicaciones"
     },
-    "add_photo":{
+    "add_photo": {
         "add_button": "Agregar photo",
         "upload_button": "Subir foto",
         "description": "Añade una descripción"
+    },
+    "comment_section": {
+        "see_more": "Ver más..."
+    },
+    "login_page": {
+        "error": "El nombre de usuario o la contraseña son invalidos"
     },
     "profile": "Perfil",
     "logout": "Salir",

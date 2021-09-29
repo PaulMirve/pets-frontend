@@ -10,7 +10,7 @@ const Landing = () => {
         <main className="landing">
             <div className="landing__layout">
                 {
-                    state.posts.map(post => {
+                    Object.values(state.posts).map(post => {
                         return <Card post={post} key={post.public_id} />
                     })
                 }
