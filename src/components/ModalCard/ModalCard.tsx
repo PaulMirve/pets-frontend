@@ -1,33 +1,44 @@
-import React from 'react'
-import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline';
-import IconHeartOutline from '../../svg/IconHeartOutline';
+import React, { useState } from 'react'
 import Heading from '../Heading/Heading';
 import Post from '../../types/Post';
-import CommentsSection from '../CommentsSection/CommentsSection';
+import Comment from '../CommentsSection/Comment';
+import TextInput from '../Form/TextInput';
+import { useAppDispatch } from '../../hooks/hooks';
+import { postComment } from '../../actions/comments.actions';
 
 interface IProps {
     post: Post
 }
 const ModalCard: React.FC<IProps> = ({ post }) => {
+
+    const dispatch = useAppDispatch();
+    const [comment, setComment] = useState<string>("");
+
+    const onCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setComment("");
+        dispatch(postComment(comment, post.public_id));
+    }
+
     return (
         <div className="modal-card">
-            <img className="modal-card__img" src={post.img} alt={post.public_id} />
+            <img src={post.img} alt={post.public_id} className="modal-card__img" />
             <div className="modal-card__content">
-                <Heading centered type="subtitle">{post.user.username}</Heading>
-                <div className="modal-card__icons">
-                    <div className="modal-card__icon-box">
-                        <IconHeartOutline />
-                        {post.likeCount}
-                    </div>
-                    <div className="modal-card__icon-box">
-                        <IconChatBubbleElipsesOutline />
-                        {post.comments.length}
-                    </div>
+                <div className="modal-card__headings">
+                    <Heading type="subtitle">{post.user.username}</Heading>
                 </div>
-                <p className="modal-card__description">
-                    {post.description}
-                </p>
-                <CommentsSection type="extended" post={post} />
+                <div className="modal-card__comments">
+                    <section>
+                        {
+                            post.comments.map(comment => {
+                                return <Comment comment={comment} />
+                            })
+                        }
+                    </section>
+                </div>
+                <form onSubmit={onCommentSubmit}>
+                    <TextInput value={comment} onChange={e => setComment(e.target.value)} name="comment" variant="stylized" placeholder="Add a comment..." />
+                </form>
             </div>
         </div>
     )

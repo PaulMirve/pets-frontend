@@ -19,16 +19,8 @@
 
     &__content {
         background-color: white;
-        min-height: 50%;
-        min-width: 50%;
+        width: min(900px, 90%);
         border-radius: 5px;
         overflow: hidden;
-    }
-
-    &__close {
-        width: 4rem;
-        margin-left: auto;
-        padding: 1em;
-        cursor: pointer;
     }
 }

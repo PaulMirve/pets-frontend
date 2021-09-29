@@ -9,9 +9,11 @@ interface IProps {
 const Comment: React.FC<IProps> = ({ comment }) => {
     return (
         <div className="comment">
-            <b className="comment__user">{comment.user.username}</b>
-            <p className="comment__comment">{comment.comment}</p>
-            <IconHeartOutline className="comment__like"/>
+            <div className="comment_container">
+                <b className="comment__user">{comment.user.username}</b>
+                <p className="comment__comment">{comment.comment}</p>
+            </div>
+            <IconHeartOutline className="comment__like" />
         </div>
     )
 }

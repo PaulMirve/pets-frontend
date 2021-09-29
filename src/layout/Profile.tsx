@@ -5,8 +5,6 @@ import Heading from '../components/Heading/Heading';
 import Modal from '../components/Modal/Modal';
 import ModalCard from '../components/ModalCard/ModalCard';
 import Post from '../types/Post';
-import IconChatBubbleElipsesOutline from '../svg/IconChatBubbleElipsesOutline';
-import IconHeartOutline from '../svg/IconHeartOutline';
 
 interface IProps {
 

@@ -1,20 +1,24 @@
-.comment{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-
-    &__user{
-        font-size: 1.2rem;
-        cursor: pointer;
+.comment {
+   display: grid;
+   grid-template-columns: 1fr auto;
+    font-size: 1.2rem;
+    &__container {
+        flex-grow: 1;
     }
 
-    &__comment{
-        margin-right: auto;
-        font-size: 1.2rem;
+    &__user {
+        display: inline;
+        cursor: pointer;
+        margin-right: 0.5rem;
+    }
+
+    &__comment {
+        display: inline;
         word-break: break-word;
     }
-    &__like{
+    &__like {
         width: 2rem;
         cursor: pointer;
+        justify-self: flex-end;
     }
 }
