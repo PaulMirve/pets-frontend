@@ -134,7 +134,7 @@ body {
 .card {
   display: grid;
   grid-template-columns: minmax(min-content, 1fr);
-  grid-template-rows: repeat(2, auto) 1fr;
+  grid-template-rows: repeat(3, auto) 1fr;
   grid-template-areas: "img" "username" "actions" "description";
   border: 3px solid #ff006e;
   padding: 2rem;
@@ -324,6 +324,51 @@ body {
   width: 4rem;
   margin-left: auto;
   padding: 1em;
+  cursor: pointer;
+}
+
+.comment-section__text-input {
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 0.4em 1em;
+  border-radius: 50px;
+  border: 3px solid #ff006e;
+  background-color: transparent;
+  outline: none;
+  color: #ff006e;
+  font-weight: 500;
+}
+.comment-section__text-input::placeholder {
+  color: rgba(108, 117, 125, 0.6);
+}
+.comment-section__form-group {
+  position: relative;
+}
+.comment-section__form-group__icon {
+  width: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  fill: #ff006e;
+  cursor: pointer;
+}
+
+.comment {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.comment__user {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.comment__comment {
+  margin-right: auto;
+  font-size: 1.2rem;
+}
+.comment__like {
+  width: 2rem;
   cursor: pointer;
 }
 

@@ -1,0 +1,19 @@
+.comment{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    &__user{
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    &__comment{
+        margin-right: auto;
+        font-size: 1.2rem;
+    }
+    &__like{
+        width: 2rem;
+        cursor: pointer;
+    }
+}

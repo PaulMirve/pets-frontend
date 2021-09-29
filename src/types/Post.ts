@@ -1,7 +1,7 @@
-import User from '../types/User';
-import Comment from '../types/Comment';
+import User from "./User";
+import Comment from './Comment';
 
-export default interface Post {
+type Post = {
     _id: string,
     public_id: string,
     description: string,
@@ -13,3 +13,5 @@ export default interface Post {
     user: User,
     active: boolean
 }
+
+export default Post;

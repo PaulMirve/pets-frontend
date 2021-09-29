@@ -1,0 +1,30 @@
+.comment-section {
+    &__text-input {
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 0.4em 1em;
+        border-radius: 50px;
+        border: 3px solid $color-primary;
+        background-color: transparent;
+        outline: none;
+        color: $color-primary;
+        font-weight: 500;
+
+        &::placeholder {
+            color: rgba($color-grey, 0.6);
+        }
+    }
+
+    &__form-group {
+        position: relative;
+        &__icon {
+            width: 2rem;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            fill: $color-primary;
+            cursor: pointer;
+        }
+    }
+}

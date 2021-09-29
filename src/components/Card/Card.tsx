@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import history from '../../history';
-import Post from '../../interfaces/Post';
+import Post from '../../types/Post';
 import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline';
 import IconHeartOutline from '../../svg/IconHeartOutline';
 import { useAppSelector } from '../../hooks/hooks';
 import User from '../../types/User';
 import IconHeart from '../../svg/IconHeart';
 import api from '../../api/api';
+import CommentsSection from '../CommentsSection/CommentsSection';
 
 interface IProps {
     post: Post
@@ -48,6 +49,7 @@ const Card: React.FC<IProps> = ({ post }) => {
                 </div>
             </div>
             <div className="card__description">{post.description}</div>
+            <CommentsSection post={post} />
         </div>
     )
 }
