@@ -8,6 +8,7 @@
 
     &--extended &__comments {
         overflow-y: scroll;
+        padding: 1rem;
         &::-webkit-scrollbar {
             display: none;
         }

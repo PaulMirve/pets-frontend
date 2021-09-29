@@ -330,6 +330,7 @@ body {
 }
 .comment-section--extended .comment-section__comments {
   overflow-y: scroll;
+  padding: 1rem;
 }
 .comment-section--extended .comment-section__comments::-webkit-scrollbar {
   display: none;
@@ -381,6 +382,7 @@ body {
 .comment__comment {
   margin-right: auto;
   font-size: 1.2rem;
+  word-break: break-word;
 }
 .comment__like {
   width: 2rem;
