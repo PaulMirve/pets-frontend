@@ -5,6 +5,7 @@ import Comment from '../CommentsSection/Comment';
 import TextInput from '../Form/TextInput';
 import { useAppDispatch } from '../../hooks/hooks';
 import { postComment } from '../../actions/comments.actions';
+import IconSet from '../IconSet/IconSet';
 
 interface IProps {
     post: Post
@@ -26,6 +27,8 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
             <div className="modal-card__content">
                 <div className="modal-card__headings">
                     <Heading type="subtitle">{post.user.username}</Heading>
+                    <p>{post.description}</p>
+                    <IconSet onLikeClick={() => { }} likesCount={post.likeCount} isLiked={false} commentCount={post.comments.length} />
                 </div>
                 <div className="modal-card__comments">
                     <section>

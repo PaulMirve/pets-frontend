@@ -36,9 +36,9 @@
     &__headings {
         display: grid;
         place-items: center;
-    }
 
-    &__input {
-
+        & p{
+            font-size: 1.4rem;
+        }
     }
 }

@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import history from '../../history';
 import Post from '../../types/Post';
-import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline';
-import IconHeartOutline from '../../svg/IconHeartOutline';
 import { useAppSelector } from '../../hooks/hooks';
 import User from '../../types/User';
-import IconHeart from '../../svg/IconHeart';
 import api from '../../api/api';
 import CommentsSection from '../CommentsSection/CommentsSection';
+import IconSet from '../IconSet/IconSet';
 
 interface IProps {
     post: Post
@@ -38,16 +36,7 @@ const Card: React.FC<IProps> = ({ post }) => {
                 <img src={post.img} alt={post._id} className="card__img" />
             </figure>
             <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
-            <div className="card__actions">
-                <div className="card__action-box">
-                    {postIsLiked ? <IconHeart onClick={onLikeClick} className="card__icon" /> : <IconHeartOutline onClick={onLikeClick} className="card__icon" />}
-                    <h5 className="card__icon-number">{likesCount}</h5>
-                </div>
-                <div className="card__action-box">
-                    <IconChatBubbleElipsesOutline className="card__icon" />
-                    <h5 className="card__icon-number">{post.comments.length}</h5>
-                </div>
-            </div>
+            <IconSet onLikeClick={onLikeClick} isLiked={postIsLiked} likesCount={post.likeCount} commentCount={post.comments.length} />
             <div className="card__description">{post.description}</div>
             <CommentsSection post={post} />
         </div>

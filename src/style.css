@@ -451,6 +451,28 @@ body {
   display: grid;
   place-items: center;
 }
+.modal-card__headings p {
+  font-size: 1.4rem;
+}
+
+.icon-set {
+  display: flex;
+  color: #ff006e;
+  fill: #ff006e;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.icon-set__icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.icon-set__icon svg {
+  width: 2rem;
+}
+
 .landing {
   display: grid;
   grid-template-columns: 1fr 0.5fr;

@@ -1,0 +1,17 @@
+.icon-set {
+    display: flex;
+    color: $color-primary;
+    fill: $color-primary;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    &__icon {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        & svg {
+            width: 2rem;
+        }
+    }
+}
