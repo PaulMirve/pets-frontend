@@ -5,12 +5,14 @@ import { useAppDispatch } from '../../hooks/hooks';
 import IconCaretForwardOutline from '../../svg/IconCaretForwardOutline';
 import Post from '../../types/Post'
 import Comment from './Comment';
+import TypeComment from '../../types/Comment';
 
 interface IProps {
-    post: Post
+    post: Post,
+    type?: "default" | "extended"
 }
 
-const CommentsSection: React.FC<IProps> = ({ post }) => {
+const CommentsSection: React.FC<IProps> = ({ post, type }) => {
     const [comment, setComment] = useState<string>("");
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
@@ -21,14 +23,34 @@ const CommentsSection: React.FC<IProps> = ({ post }) => {
         dispatch(postComment(comment, post.public_id));
     }
 
+    const getType = (): string => {
+        switch (type) {
+            case "extended":
+                return "comment-section--extended";
+            default:
+                return " ";
+        }
+    }
+
+    const getComments = (): TypeComment[] => {
+        const comments: TypeComment[] = post.comments;
+        if (type !== "extended") {
+            return comments.slice(0, 2);
+        }
+        console.log(comments)
+        return comments;
+    }
+
     return (
-        <div className="comment-section">
-            {
-                post.comments.slice(0, 2).map(comment => {
-                    return <Comment key={comment._id} comment={comment} />
-                })
-            }
-            <p className="comment-section__see-more">{t("comment_section.see_more")}</p>
+        <div className={`comment-section ${getType()}`}>
+            <div className="comment-section__comments">
+                {
+                    getComments().map(comment => {
+                        return <Comment key={comment._id} comment={comment} />
+                    })
+                }
+            </div>
+            {type !== "extended" && <p className="comment-section__see-more">{t("comment_section.see_more")}</p>}
             <div style={{ marginTop: '2rem' }} className="comment-section__form-group">
                 <form onSubmit={onCommentSubmit}>
                     <input

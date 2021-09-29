@@ -316,10 +316,6 @@ body {
   border-radius: 5px;
   overflow: hidden;
 }
-.modal__main {
-  height: 100%;
-  width: 100%;
-}
 .modal__close {
   width: 4rem;
   margin-left: auto;
@@ -327,6 +323,17 @@ body {
   cursor: pointer;
 }
 
+.comment-section--extended {
+  height: 85%;
+  display: grid;
+  grid-template-rows: minmax(100px, 370px) auto auto;
+}
+.comment-section--extended .comment-section__comments {
+  overflow-y: scroll;
+}
+.comment-section--extended .comment-section__comments::-webkit-scrollbar {
+  display: none;
+}
 .comment-section__text-input {
   width: 100%;
   font-size: 1.4rem;
@@ -398,6 +405,7 @@ body {
 .modal-card__content {
   align-self: start;
   padding: 3rem 0;
+  height: 100%;
 }
 .modal-card__icons {
   display: flex;

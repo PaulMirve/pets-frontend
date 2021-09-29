@@ -1,4 +1,18 @@
 .comment-section {
+
+    &--extended {
+        height: 85%;
+        display: grid;
+        grid-template-rows: minmax(100px, 370px) auto auto;
+    }
+
+    &--extended &__comments {
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
     &__text-input {
         width: 100%;
         font-size: 1.4rem;
@@ -26,7 +40,7 @@
         border: none;
     }
 
-    &__see-more{
+    &__see-more {
         cursor: pointer;
     }
 

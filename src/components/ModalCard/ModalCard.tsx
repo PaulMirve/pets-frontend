@@ -3,6 +3,7 @@ import IconChatBubbleElipsesOutline from '../../svg/IconChatBubbleElipsesOutline
 import IconHeartOutline from '../../svg/IconHeartOutline';
 import Heading from '../Heading/Heading';
 import Post from '../../types/Post';
+import CommentsSection from '../CommentsSection/CommentsSection';
 
 interface IProps {
     post: Post
@@ -26,6 +27,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
                 <p className="modal-card__description">
                     {post.description}
                 </p>
+                <CommentsSection type="extended" post={post} />
             </div>
         </div>
     )
