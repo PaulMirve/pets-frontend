@@ -52,6 +52,7 @@ function App() {
         <Route path="/signin" exact component={SignIn} />
         <Route path="/add" exact component={AddPhoto} />
         <Route path="/u/:username" exact component={Profile} />
+        <Route path="/p/:public_key" exact component={Profile} />
       </Switch>
     </Router>
   );

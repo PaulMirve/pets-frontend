@@ -23,7 +23,6 @@ const Profile: React.FC<IProps> = () => {
     useEffect(() => {
         (async () => {
             const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
-            console.log(posts.data)
             setPosts(posts.data);
         })()
     }, [username]);

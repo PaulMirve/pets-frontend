@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Heading from '../Heading/Heading';
 import Post from '../../types/Post';
 import Comment from '../CommentsSection/Comment';
 import TextInput from '../Form/TextInput';
-import { useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { postComment } from '../../actions/comments.actions';
 import IconSet from '../IconSet/IconSet';
+import CommentType from '../../types/Comment';
 
 interface IProps {
     post: Post
@@ -13,13 +14,19 @@ interface IProps {
 const ModalCard: React.FC<IProps> = ({ post }) => {
 
     const dispatch = useAppDispatch();
+    const posts = useAppSelector(state => state.posts);
     const [comment, setComment] = useState<string>("");
+    const [comments, setComments] = useState<CommentType[]>(post.comments);
 
-    const onCommentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setComment("");
         dispatch(postComment(comment, post.public_id));
     }
+
+    useEffect(() => {
+        setComments(posts[post.public_id].comments);
+    }, [posts, post.public_id]);
 
     return (
         <div className="modal-card">
@@ -33,8 +40,8 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
                 <div className="modal-card__comments">
                     <section>
                         {
-                            post.comments.map(comment => {
-                                return <Comment comment={comment} />
+                            comments.map((comment, index) => {
+                                return <Comment key={index} comment={comment} />
                             })
                         }
                     </section>

@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../hooks/hooks';
 import Post from '../../types/Post'
 import Comment from './Comment';
 import TextInput from '../Form/TextInput';
+import history from '../../history';
 
 interface IProps {
     post: Post
@@ -30,7 +31,7 @@ const CommentsSection: React.FC<IProps> = ({ post }) => {
                     })
                 }
             </div>
-            <p className="comment-section__see-more">{t("comment_section.see_more")}</p>
+            <p onClick={() => history.push(`/p/${post.public_id}`)} className="comment-section__see-more">{t("comment_section.see_more")}</p>
             <div style={{ marginTop: '2rem' }} className="comment-section__form-group">
                 <form onSubmit={onCommentSubmit}>
                     <TextInput
