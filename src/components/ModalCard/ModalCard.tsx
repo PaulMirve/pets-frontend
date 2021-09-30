@@ -17,17 +17,18 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
     const posts = useAppSelector(state => state.posts);
     const [comment, setComment] = useState<string>("");
     const [comments, setComments] = useState<CommentType[]>(post.comments);
+    const [commentsCount, setCommentsCount] = useState<number>(post.comments.length);
 
     const onCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setComment("");
         dispatch(postComment(comment, post.public_id));
+        setCommentsCount(commentsCount + 1);
     }
 
     useEffect(() => {
         setComments(posts[post.public_id].comments);
     }, [posts, post.public_id]);
-
     return (
         <div className="modal-card">
             <img src={post.img} alt={post.public_id} className="modal-card__img" />
@@ -35,7 +36,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
                 <div className="modal-card__headings">
                     <Heading type="subtitle">{post.user.username}</Heading>
                     <p>{post.description}</p>
-                    <IconSet onLikeClick={() => { }} likesCount={post.likeCount} isLiked={false} commentCount={post.comments.length} />
+                    <IconSet onLikeClick={() => { }} likesCount={post.likeCount} isLiked={false} commentCount={commentsCount} />
                 </div>
                 <div className="modal-card__comments">
                     <section>

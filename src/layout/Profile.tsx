@@ -4,6 +4,7 @@ import api from '../api/api';
 import Heading from '../components/Heading/Heading';
 import Modal from '../components/Modal/Modal';
 import ModalCard from '../components/ModalCard/ModalCard';
+import PostLayout from '../components/PostLayout/PostLayout';
 import Post from '../types/Post';
 
 interface IProps {
@@ -40,17 +41,7 @@ const Profile: React.FC<IProps> = () => {
     return (
         <div className="profile">
             <Heading centered>{username}</Heading>
-            <div className="profile__grid">
-                {
-                    posts.map(post => {
-                        return <div
-                            key={post.public_id}
-                            onClick={() => onModalOpen(post)}>
-                            <img src={post.img} alt={post.public_id} className="profile__img" />
-                        </div>
-                    })
-                }
-            </div>
+            <PostLayout posts={posts} onPostClick={onModalOpen} />
             <Modal visible={open} onClose={onModalClose}>
                 {
                     postSelected && <ModalCard post={postSelected} />

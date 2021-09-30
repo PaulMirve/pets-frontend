@@ -10,4 +10,8 @@
     &--roboto{
         font-family: $font-secondary;
     }
+
+    &--underline{
+        border-bottom: 1px solid $color-primary;
+    }
 }

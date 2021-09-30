@@ -6,10 +6,11 @@ interface IProps {
     children?: React.ReactNode,
     type?: "primary" | "subtitle",
     centered?: boolean,
-    family?: "roboto" | "pacifico"
+    family?: "roboto" | "pacifico",
+    underline?: boolean
 }
 
-const Heading: React.FC<IProps> = ({ style, className = "", children, type, centered, family }) => {
+const Heading: React.FC<IProps> = ({ underline, style, className = "", children, type, centered, family }) => {
 
     const getType = () => {
         switch (type) {
@@ -30,7 +31,9 @@ const Heading: React.FC<IProps> = ({ style, className = "", children, type, cent
     }
 
     return (
-        <h1 className={`heading ${getType()} ${getFamily()} ${className} ${centered && 'text-align-center'}`} style={style}>
+        <h1
+            className={`heading ${getType()} ${getFamily()} ${className} ${centered && 'text-align-center'} ${underline ? 'heading--underline' : ''}`}
+            style={style}>
             {children}
         </h1>
     )

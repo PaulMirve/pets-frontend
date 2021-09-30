@@ -1,0 +1,28 @@
+.post-layout {
+    $ratio: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($ratio, 1fr));
+    grid-gap: 1rem;
+
+    &>div {
+        background: $color-white;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        &::before {
+            // for apsect ratio
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+            grid-area: 1 / 1 / 2 / 2;
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            grid-area: 1 / 1 / 2 / 2;
+        }
+    }
+}

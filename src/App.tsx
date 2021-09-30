@@ -18,6 +18,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Profile from './layout/Profile';
+import Post from './layout/Post';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -52,7 +53,7 @@ function App() {
         <Route path="/signin" exact component={SignIn} />
         <Route path="/add" exact component={AddPhoto} />
         <Route path="/u/:username" exact component={Profile} />
-        <Route path="/p/:public_key" exact component={Profile} />
+        <Route path="/p/:public_id" exact component={Post} />
       </Switch>
     </Router>
   );
