@@ -4,7 +4,7 @@ import Post from "../types/Post";
 import User from "../types/User";
 import { useAppSelector } from './hooks';
 
-export const useLike = (post: Post): [number, boolean, () => void] => {
+const useLike = (post: Post): [number, boolean, () => void] => {
     let user: User | null = useAppSelector(state => state.user);
     const [likesCount, setLikesCount] = useState<number>(post.likeCount);
     const [postIsLiked, setPostIsLiked] = useState<boolean>(post.likes.some(_user => _user.username === user?.username));
@@ -28,3 +28,5 @@ export const useLike = (post: Post): [number, boolean, () => void] => {
 
     return [likesCount, postIsLiked, onLike];
 }
+
+export default useLike;

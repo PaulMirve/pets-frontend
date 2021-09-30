@@ -4,7 +4,7 @@ import Post from '../../types/Post';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import IconSet from '../IconSet/IconSet';
 import PostImage from '../PostImage/PostImage';
-import { useLike } from '../../hooks/like.hook';
+import useLike from '../../hooks/like.hook';
 
 interface IProps {
     post: Post
