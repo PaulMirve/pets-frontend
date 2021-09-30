@@ -502,6 +502,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  cursor: pointer;
 }
 .icon-set__icon svg {
   width: 2rem;
@@ -533,8 +534,8 @@ body {
   opacity: 0;
   visibility: hidden;
 }
-.post-image__icon--active svg {
-  animation: fadeInAndOut 1s;
+.post-image__liked + .post-image__icon {
+  animation: fadeInAndOut 2s;
 }
 .post-image img {
   width: 100%;

@@ -8,6 +8,7 @@ import { postComment } from '../../actions/comments.actions';
 import IconSet from '../IconSet/IconSet';
 import CommentType from '../../types/Comment';
 import PostImage from '../PostImage/PostImage';
+import { useLike } from '../../hooks/like.hook';
 
 interface IProps {
     post: Post
@@ -16,6 +17,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
 
     const dispatch = useAppDispatch();
     const posts = useAppSelector(state => state.posts);
+    const [likeCount, isLiked, onLike] = useLike(post);
     const [comment, setComment] = useState<string>("");
     const [comments, setComments] = useState<CommentType[]>(post.comments);
     const [commentsCount, setCommentsCount] = useState<number>(post.comments.length);
@@ -30,14 +32,16 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
     useEffect(() => {
         setComments(posts[post.public_id].comments);
     }, [posts, post.public_id]);
+
+    console.log(post)
     return (
         <div className="modal-card">
-            <PostImage src={post.img} alt={post.public_id} />
+            <PostImage src={post.img} alt={post.public_id} frameProps={{ onDoubleClick: onLike }} />
             <div className="modal-card__content">
                 <div className="modal-card__headings">
                     <Heading type="subtitle">{post.user.username}</Heading>
                     <p>{post.description}</p>
-                    <IconSet onLikeClick={() => { }} likesCount={post.likeCount} isLiked={false} commentCount={commentsCount} />
+                    <IconSet onLikeClick={onLike} likesCount={likeCount} isLiked={isLiked} commentCount={commentsCount} />
                 </div>
                 <div className="modal-card__comments">
                     <section>
