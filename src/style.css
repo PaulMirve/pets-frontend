@@ -53,6 +53,16 @@ main {
   }
 }
 
+@keyframes fadeInAndOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -508,12 +518,23 @@ body {
   display: grid;
   place-items: center;
   cursor: pointer;
+  position: relative;
 }
 .post-image::before {
   content: "";
   display: block;
   padding-bottom: 100%;
   grid-area: 1/1/2/2;
+}
+.post-image__icon {
+  position: absolute;
+  fill: #ff006e;
+  width: 30rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.post-image__icon--active svg {
+  animation: fadeInAndOut 1s;
 }
 .post-image img {
   width: 100%;

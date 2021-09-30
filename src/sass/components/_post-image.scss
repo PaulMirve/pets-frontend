@@ -3,6 +3,7 @@
     display: grid;
     place-items: center;
     cursor: pointer;
+    position: relative;
 
     &::before {
         // for apsect ratio
@@ -10,6 +11,21 @@
         display: block;
         padding-bottom: 100%;
         grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &__icon {
+        position: absolute;
+        fill: $color-primary;
+        width: 30rem;
+        opacity: 0;
+        visibility: hidden;
+
+        &--active {
+            & svg {
+                animation: fadeInAndOut 1s;
+            }
+
+        }
     }
 
     & img {
