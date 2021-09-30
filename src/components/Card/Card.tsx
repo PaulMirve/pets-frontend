@@ -6,6 +6,7 @@ import User from '../../types/User';
 import api from '../../api/api';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import IconSet from '../IconSet/IconSet';
+import PostImage from '../PostImage/PostImage';
 
 interface IProps {
     post: Post
@@ -32,9 +33,7 @@ const Card: React.FC<IProps> = ({ post }) => {
 
     return (
         <div className="card">
-            <figure onDoubleClick={onLikeClick} className="card__frame">
-                <img src={post.img} alt={post._id} className="card__img" />
-            </figure>
+            <PostImage src={post.img} alt={post._id} />
             <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
             <IconSet onLikeClick={onLikeClick} isLiked={postIsLiked} likesCount={post.likeCount} commentCount={post.comments.length} />
             <div className="card__description">{post.description}</div>

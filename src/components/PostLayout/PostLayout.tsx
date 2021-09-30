@@ -1,5 +1,6 @@
 import React from 'react'
 import Post from '../../types/Post'
+import PostImage from '../PostImage/PostImage';
 
 interface IProps {
     posts: Post[],
@@ -20,11 +21,7 @@ const PostLayout: React.FC<IProps> = ({ removeActual, offset = 0, slice, posts, 
         <div className="post-layout">
             {
                 getPosts().map(post => {
-                    return <div
-                        key={post.public_id}
-                        onClick={() => onPostClick(post)}>
-                        <img src={post.img} alt={post.public_id} className="profile__img" />
-                    </div>
+                    return <PostImage frameProps={{ onClick: () => onPostClick(post) }} key={post.public_id} src={post.img} alt={post.public_id} />
                 })
             }
         </div>

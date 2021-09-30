@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { postComment } from '../../actions/comments.actions';
 import IconSet from '../IconSet/IconSet';
 import CommentType from '../../types/Comment';
+import PostImage from '../PostImage/PostImage';
 
 interface IProps {
     post: Post
@@ -31,7 +32,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
     }, [posts, post.public_id]);
     return (
         <div className="modal-card">
-            <img src={post.img} alt={post.public_id} className="modal-card__img" />
+            <PostImage src={post.img} alt={post.public_id} />
             <div className="modal-card__content">
                 <div className="modal-card__headings">
                     <Heading type="subtitle">{post.user.username}</Heading>
