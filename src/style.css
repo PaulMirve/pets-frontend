@@ -440,10 +440,15 @@ body {
   display: inline;
   word-break: break-word;
 }
+.comment__likes {
+  display: flex;
+  align-items: center;
+}
 .comment__like {
   width: 2rem;
   cursor: pointer;
   justify-self: flex-end;
+  fill: #ff006e;
 }
 
 .modal-card {

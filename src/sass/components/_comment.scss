@@ -1,6 +1,6 @@
 .comment {
-   display: grid;
-   grid-template-columns: 1fr auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
     font-size: 1.2rem;
     &__container {
         flex-grow: 1;
@@ -16,9 +16,16 @@
         display: inline;
         word-break: break-word;
     }
+
+    &__likes {
+        display: flex;
+        align-items: center;
+    }
+    
     &__like {
         width: 2rem;
         cursor: pointer;
         justify-self: flex-end;
+        fill: $color-primary;
     }
 }

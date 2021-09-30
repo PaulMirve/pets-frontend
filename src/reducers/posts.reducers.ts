@@ -31,6 +31,9 @@ const postSlice = createSlice({
         },
         addComment: (state, { type, payload }: PostAction) => {
             return { ...state, [payload.public_id]: payload };
+        },
+        addCommentLike: (state, { type, payload }: PostAction) => {
+            return { ...state, [payload.public_id]: payload };
         }
     }
 });
@@ -38,6 +41,7 @@ const postSlice = createSlice({
 export const {
     fetchPosts,
     postPost,
-    addComment
+    addComment,
+    addCommentLike
 } = postSlice.actions
 export default postSlice.reducer

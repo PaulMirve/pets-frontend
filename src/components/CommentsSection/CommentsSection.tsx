@@ -20,7 +20,7 @@ const CommentsSection: React.FC<IProps> = ({ post }) => {
             <div className="comment-section__comments">
                 {
                     post.comments.slice(0, 2).map(comment => {
-                        return <Comment key={comment._id} comment={comment} />
+                        return <Comment key={comment.public_id} comment={comment} />
                     })
                 }
             </div>

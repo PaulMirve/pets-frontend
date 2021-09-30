@@ -14,7 +14,7 @@ const Card: React.FC<IProps> = ({ post }) => {
 
     return (
         <div className="card">
-            <PostImage src={post.img} alt={post._id} frameProps={{ onDoubleClick: onLike }} />
+            <PostImage src={post.img} alt={post.public_id} frameProps={{ onDoubleClick: onLike }} />
             <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
             <IconSet onLikeClick={onLike} isLiked={postIsLiked} likesCount={likesCount} commentCount={post.comments.length} />
             <div className="card__description">{post.description}</div>
