@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import Card from '../components/Card/Card';
 import Heading from '../components/Heading/Heading';
@@ -6,6 +6,11 @@ import { useAppSelector } from '../hooks/hooks';
 const Landing = () => {
     const state = useAppSelector(state => state);
     const { t } = useTranslation();
+
+    useEffect(() => {
+        document.title = "Pets";
+    });
+
     return (
         <main className="landing">
             <div className="landing__layout">

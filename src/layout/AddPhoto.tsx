@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import Button from '../components/Button/Button';
 import TextArea from '../components/Form/TextArea';
@@ -14,30 +14,16 @@ const AddPhoto = () => {
     const [file, setFile] = useState<string | undefined>(undefined);
     const [image, setImage] = useState<Blob>();
     const [description, setDescription] = useState<string>("");
-    // const [crop, setCrop] = useState<Crop>({
-    //     width: 0,
-    //     height: 0,
-    //     x: 0,
-    //     y: 0,
-    //     unit: '%',
-    //     aspect: 1 / 1
-    // });
-    // const [width, setWidth] = useState<number>();
-    // const [height, setHeight] = useState<number>();
+
+    useEffect(() => {
+        document.title = "Pets | New Post";
+    });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
             try {
                 const url = URL.createObjectURL(event.target.files[0]);
                 setFile(url);
-                // var img = new Image;
-
-                // img.onload = function () {
-                //     setWidth(img.width);
-                //     setHeight(img.height);
-                // };
-
-                // img.src = url;
                 setImage(event.target.files[0]);
             } catch {
             }
@@ -57,10 +43,6 @@ const AddPhoto = () => {
         if (image)
             formData.append("file", image);
         formData.append("description", description);
-        // formData.append("width", crop.width.toString());
-        // formData.append("height", crop.height.toString());
-        // formData.append("left", crop.x.toString());
-        // formData.append("top", crop.y.toString());
         try {
             dispatch(postPost(formData));
         } catch (error) {

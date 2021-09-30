@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import { postUser } from '../actions/users.action';
 import Button from '../components/Button/Button';
@@ -6,7 +6,6 @@ import Form from '../components/Form/Form';
 import TextInput from '../components/Form/TextInput';
 import Heading from '../components/Heading/Heading';
 import { useAppDispatch } from '../hooks/hooks';
-
 const SignIn = () => {
     const { t } = useTranslation();
     const [name, setName] = useState<string>("");
@@ -15,6 +14,11 @@ const SignIn = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPasword] = useState<string>("");
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        document.title = "Pets | Sign In"
+    });
+
     return (
         <main className="login">
             <Form formAction="post" onSubmit={(e) => {

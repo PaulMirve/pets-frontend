@@ -22,6 +22,7 @@ const Profile: React.FC<IProps> = () => {
     const [postSelected, setPostSelected] = useState<Post>();
 
     useEffect(() => {
+        document.title = `Pets | ${username}`;
         (async () => {
             const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
             setPosts(posts.data);

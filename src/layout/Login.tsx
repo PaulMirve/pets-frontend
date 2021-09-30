@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { login } from '../actions/users.action'
 import Button from '../components/Button/Button'
@@ -13,6 +13,10 @@ const Login = () => {
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        document.title = "Pets | Login";
+    });
 
     const onFormSubmit = async (e: FormEvent) => {
         e.preventDefault();
