@@ -5,7 +5,6 @@ import Post from "../types/Post";
 import { useAppDispatch, useAppSelector } from './hooks';
 
 const useComment = (post: Post): [string, (comment: string) => void, Comment[], number, () => void] => {
-    console.log(post.comments)
     const dispatch = useAppDispatch();
     const posts = useAppSelector(state => state.posts);
     const [comment, setComment] = useState<string>("");
