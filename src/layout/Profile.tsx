@@ -5,6 +5,7 @@ import Heading from '../components/Heading/Heading';
 import Modal from '../components/Modal/Modal';
 import ModalCard from '../components/ModalCard/ModalCard';
 import PostLayout from '../components/PostLayout/PostLayout';
+import history from '../history';
 import Post from '../types/Post';
 
 interface IProps {
@@ -23,10 +24,16 @@ const Profile: React.FC<IProps> = () => {
 
     useEffect(() => {
         document.title = `Pets | ${username}`;
+
         (async () => {
-            const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
-            setPosts(posts.data);
+            try {
+                const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
+                setPosts(posts.data);
+            } catch {
+                history.push('/error');
+            }
         })();
+
         return () => setPosts([]);
     }, [username]);
 

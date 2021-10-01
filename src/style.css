@@ -571,8 +571,8 @@ body {
   text-align: center;
 }
 .loading-page svg {
-  width: 10rem;
-  height: 10rem;
+  width: 24rem;
+  height: 24rem;
 }
 .loading-page span {
   height: 15px;
@@ -757,6 +757,36 @@ body {
 
 .post {
   padding: 15vh 22vw;
+}
+
+.error404 {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.error404 span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error404 svg {
+  width: 24rem;
+  height: 24rem;
+}
+
+.error500 {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.error500 span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error500 svg {
+  width: 24rem;
+  height: 24rem;
 }
 
 /*# sourceMappingURL=style.css.map */

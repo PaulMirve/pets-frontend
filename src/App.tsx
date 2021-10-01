@@ -20,6 +20,8 @@ import HttpApi from 'i18next-http-backend';
 import Profile from './layout/Profile';
 import Post from './layout/Post';
 import LoadingPage from './components/LoadingPage/LoadingPage';
+import Error404 from './layout/Error404';
+import Error500 from './layout/Error500';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -42,11 +44,17 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(true);
-      await dispatch(fetchPost()).catch();
-      await dispatch(isAuthenticated()).catch().finally(() => {
+      try {
+        setIsLoading(true);
+        await dispatch(fetchPost()).catch();
+        await dispatch(isAuthenticated()).catch().finally(() => {
+          setIsLoading(false);
+        });
+      }
+      catch {
         setIsLoading(false);
-      });
+        history.push('/error500');
+      }
     })();
   }, []);
 
@@ -64,6 +72,8 @@ function App() {
           <Route path="/add" exact component={AddPhoto} />
           <Route path="/u/:username" exact component={Profile} />
           <Route path="/p/:public_id" exact component={Post} />
+          <Route path="/error500" exact component={Error500} />
+          <Route component={Error404} />
         </Switch>
       </Router>
     );

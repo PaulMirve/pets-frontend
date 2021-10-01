@@ -1,0 +1,15 @@
+.error500 {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    & span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    & svg {
+        width: 24rem;
+        height: 24rem;
+    }
+}
