@@ -22,11 +22,12 @@ const Post: React.FC<IProps> = () => {
 
     useEffect(() => {
         (async () => {
+
             const _post = await api.get<TypePost>(`/api/posts/${public_id}`)
-            setPost(_post.data);
-            document.title = `Pets | ${_post.data.description}`;
             const posts = await api.get<TypePost[]>(`/api/posts/u/${_post.data.user.username}`);
+            document.title = `Pets | ${_post.data.description}`;
             setPosts(posts.data);
+            setPost(_post.data);
         })()
 
     }, [public_id]);

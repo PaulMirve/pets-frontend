@@ -35,6 +35,13 @@
         height: 82vh;
         width: 20%;
 
+        & h5{
+            font-size: 1.8rem;
+            color: $color-primary;
+            font-family: $font-primary;
+            cursor: pointer;
+        }
+
         @include respond(tab-land) {
             display: none;
         }

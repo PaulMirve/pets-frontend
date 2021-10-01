@@ -4,6 +4,10 @@
     border-radius: 5px;
     overflow: hidden;
 
+    @include respond(tab-port){
+        grid-template-columns: 1fr;
+    }
+
     &__img {
         width: 100%;
         height: 100%;
@@ -22,6 +26,10 @@
     &__comments {
         flex-grow: 1;
         position: relative;
+        
+        @include respond(tab-port){
+            height: 100px;
+        }
 
         & section {
             position: absolute;

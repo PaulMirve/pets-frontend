@@ -249,7 +249,7 @@ body {
 .form__input--stylized {
   width: 100%;
   font-size: 1.4rem;
-  padding: 0.4em 1em;
+  padding: 0.4em 2em 0.4em 1em;
   border-radius: 50px;
   border: 3px solid #ff006e;
   background-color: transparent;
@@ -330,7 +330,7 @@ body {
   color: #ff006e;
 }
 .heading--subtitle {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
 }
 .heading--roboto {
   font-family: "Roboto", sans-serif;
@@ -443,6 +443,7 @@ body {
 .comment__likes {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 .comment__like {
   width: 2rem;
@@ -456,6 +457,11 @@ body {
   grid-template-columns: 1fr 30%;
   border-radius: 5px;
   overflow: hidden;
+}
+@media (max-width: 56.25em) {
+  .modal-card {
+    grid-template-columns: 1fr;
+  }
 }
 .modal-card__img {
   width: 100%;
@@ -473,6 +479,11 @@ body {
 .modal-card__comments {
   flex-grow: 1;
   position: relative;
+}
+@media (max-width: 56.25em) {
+  .modal-card__comments {
+    height: 100px;
+  }
 }
 .modal-card__comments section {
   position: absolute;
@@ -584,6 +595,12 @@ body {
   border-radius: 5px;
   height: 82vh;
   width: 20%;
+}
+.landing__news h5 {
+  font-size: 1.8rem;
+  color: #ff006e;
+  font-family: "Pacifico", cursive;
+  cursor: pointer;
 }
 @media (max-width: 75em) {
   .landing__news {
@@ -700,7 +717,7 @@ body {
 }
 
 .post {
-  padding: 15vh 14vw;
+  padding: 15vh 22vw;
 }
 
 /*# sourceMappingURL=style.css.map */

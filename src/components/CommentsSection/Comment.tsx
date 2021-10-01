@@ -1,4 +1,5 @@
 import React from 'react'
+import history from '../../history';
 import useCommentLike from '../../hooks/commentLike.hooks';
 import IconHeart from '../../svg/IconHeart';
 import IconHeartOutline from '../../svg/IconHeartOutline'
@@ -13,7 +14,7 @@ const Comment: React.FC<IProps> = ({ comment }) => {
     return (
         <div className="comment">
             <div className="comment_container">
-                <b className="comment__user">{comment.user.username}</b>
+                <b onClick={() => history.push(`/u/${comment.user.username}`)} className="comment__user">{comment.user.username}</b>
                 <p className="comment__comment">{comment.comment}</p>
             </div>
             <div className="comment__likes">
