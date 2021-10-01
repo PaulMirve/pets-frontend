@@ -28,8 +28,10 @@ const Post: React.FC<IProps> = () => {
             document.title = `Pets | ${_post.data.description}`;
             setPosts(posts.data);
             setPost(_post.data);
-        })()
-
+        })();
+        return () =>{
+            setPosts([]);
+        }
     }, [public_id]);
     return (
         <div className="post">

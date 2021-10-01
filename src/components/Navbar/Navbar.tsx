@@ -40,9 +40,9 @@ const Navbar: React.FC<IProps> = () => {
                 <h3 className="navbar__title">Pets</h3>
             </div>
             <div className="navbar__actions">
-                <IconAddCircleOutline onClick={() => history.push('/add')} className="navbar__icon" />
-                {
-                    user ?
+                {user ?
+                    <>
+                        <IconAddCircleOutline onClick={() => history.push('/add')} className="navbar__icon" />
                         <div onClick={onAvatarClick} className="navbar__user">
                             {getInitials()}
                             <Menu open={menuOpen}>
@@ -56,11 +56,12 @@ const Navbar: React.FC<IProps> = () => {
                                 </button>
                             </Menu>
                         </div>
-                        :
-                        <>
-                            <Button onClick={() => history.push('/login')} variant="outlined" type="small">{t("login")}</Button>
-                            <Button onClick={() => history.push('/signin')} variant="outlined" type="small">{t("sign_in")}</Button>
-                        </>
+                    </>
+                    :
+                    <>
+                        <Button onClick={() => history.push('/login')} variant="outlined" type="small">{t("login")}</Button>
+                        <Button onClick={() => history.push('/signin')} variant="outlined" type="small">{t("sign_in")}</Button>
+                    </>
                 }
             </div>
         </nav>

@@ -26,7 +26,8 @@ const Profile: React.FC<IProps> = () => {
         (async () => {
             const posts = await api.get<Post[]>(`/api/posts/u/${username}`);
             setPosts(posts.data);
-        })()
+        })();
+        return () => setPosts([]);
     }, [username]);
 
     const onModalOpen = (post: Post) => {

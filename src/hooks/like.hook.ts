@@ -1,5 +1,6 @@
 import { useState } from "react"
 import api from "../api/api";
+import history from "../history";
 import Post from "../types/Post";
 import User from "../types/User";
 import { useAppSelector } from './hooks';
@@ -10,18 +11,22 @@ const useLike = (post: Post): [number, boolean, () => void] => {
     const [postIsLiked, setPostIsLiked] = useState<boolean>(post.likes.some(_user => _user.username === user?.username));
 
     const onLike = (): void => {
-        api.put<User>(`/api/posts/like/${post.public_id}`, {}, {
-            headers: {
-                "Authorization": localStorage.getItem('user')
-            }
-        });
+        if (user) {
+            api.put<User>(`/api/posts/like/${post.public_id}`, {}, {
+                headers: {
+                    "Authorization": localStorage.getItem('user')
+                }
+            });
 
-        if (postIsLiked) {
-            setLikesCount(likesCount - 1);
-            setPostIsLiked(false);
+            if (postIsLiked) {
+                setLikesCount(likesCount - 1);
+                setPostIsLiked(false);
+            } else {
+                setLikesCount(likesCount + 1);
+                setPostIsLiked(true);
+            }
         } else {
-            setLikesCount(likesCount + 1);
-            setPostIsLiked(true);
+            history.push('/login');
         }
     }
 
