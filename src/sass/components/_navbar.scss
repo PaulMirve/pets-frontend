@@ -7,7 +7,7 @@
     padding: 1em $body-padding;
     align-items: center;
     background-color: $color-dark;
-    z-index: 99;
+    z-index: 10;
 
     &__container{
         display: flex;

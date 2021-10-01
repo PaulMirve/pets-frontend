@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Router,
   Switch,
@@ -19,10 +19,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import Profile from './layout/Profile';
 import Post from './layout/Post';
+import LoadingPage from './components/LoadingPage/LoadingPage';
 
 function App() {
   const dispatch = useAppDispatch();
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   i18n
     .use(initReactI18next)
     .use(LanguageDetector)
@@ -40,23 +41,34 @@ function App() {
     })
 
   useEffect(() => {
-    dispatch(fetchPost());
-    dispatch(isAuthenticated());
+    (async () => {
+      setIsLoading(true);
+      await dispatch(fetchPost()).catch();
+      await dispatch(isAuthenticated()).catch().finally(() => {
+        setIsLoading(false);
+      });
+    })();
   }, []);
 
-  return (
-    <Router history={history}>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Landing} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signin" exact component={SignIn} />
-        <Route path="/add" exact component={AddPhoto} />
-        <Route path="/u/:username" exact component={Profile} />
-        <Route path="/p/:public_id" exact component={Post} />
-      </Switch>
-    </Router>
-  );
+  if (isLoading) {
+    return <LoadingPage />
+  } else {
+    return (
+      <Router history={history}>
+        <Navbar />
+
+        <Switch>
+          <Route path="/" exact component={Landing} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signin" exact component={SignIn} />
+          <Route path="/add" exact component={AddPhoto} />
+          <Route path="/u/:username" exact component={Profile} />
+          <Route path="/p/:public_id" exact component={Post} />
+        </Switch>
+      </Router>
+    );
+  }
+
 }
 
 export default App;
