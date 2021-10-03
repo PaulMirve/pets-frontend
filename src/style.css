@@ -646,6 +646,18 @@ body {
     display: none;
   }
 }
+.landing__more {
+  display: flex;
+  justify-content: center;
+}
+.landing__more button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: #ff006e;
+  font-weight: 600;
+  cursor: pointer;
+}
 
 .login {
   display: grid;

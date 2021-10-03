@@ -20,7 +20,7 @@ const postSlice = createSlice({
     initialState,
     reducers: {
         fetchPosts: (state, { type, payload }: FetchAction) => {
-            let posts: { [key: string]: Post } = {};
+            let posts: { [key: string]: Post } = state;
             payload.forEach(post => {
                 posts[post.public_id] = post;
             });

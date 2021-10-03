@@ -44,17 +44,16 @@ function App() {
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         await dispatch(fetchPost()).catch();
-        await dispatch(isAuthenticated()).catch().finally(() => {
-          setIsLoading(false);
-        });
-      }
-      catch {
+      } catch {
         setIsLoading(false);
         history.push('/error500');
       }
+      await dispatch(isAuthenticated()).catch().finally(() => {
+        setIsLoading(false);
+      });
     })();
   }, []);
 

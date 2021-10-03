@@ -4,9 +4,9 @@ import history from "../history";
 import Post from "../interfaces/Post";
 import { fetchPosts as fetchposts, postPost as _postPost } from "../reducers/posts.reducers";
 
-export const fetchPost = (limit: number = 10, offset: number = 0) => {
+export const fetchPost = (limit: number = 5, offset: number = 0) => {
     return async (dispatch: Dispatch) => {
-        const response = await api.get(`/api/posts`);
+        const response = await api.get(`/api/posts?limit=${limit}&offset=${offset}`);
         dispatch(fetchposts(response.data.posts));
     }
 }
@@ -23,6 +23,6 @@ export const postPost = (data: FormData) => {
     }
 }
 
-export const putPost = (post: Post) =>{
+export const putPost = (post: Post) => {
 
 }
