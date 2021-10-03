@@ -1,6 +1,6 @@
 import Heading from '../Heading/Heading';
 import Post from '../../types/Post';
-import Comment from '../CommentsSection/Comment';
+import Comment from '../Comment/Comment';
 import TextInput from '../Form/TextInput';
 import IconSet from '../IconSet/IconSet';
 import PostImage from '../PostImage/PostImage';

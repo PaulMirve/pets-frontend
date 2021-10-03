@@ -50,7 +50,9 @@
     &__more {
         display: flex;
         justify-content: center;
-
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $color-primary;
         & button {
             background-color: transparent;
             border: none;

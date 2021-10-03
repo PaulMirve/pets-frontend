@@ -649,6 +649,9 @@ body {
 .landing__more {
   display: flex;
   justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ff006e;
 }
 .landing__more button {
   background-color: transparent;

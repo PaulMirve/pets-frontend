@@ -7,7 +7,6 @@ import {
 import Navbar from './components/Navbar/Navbar';
 import Landing from './layout/Landing';
 import { useAppDispatch } from './hooks/hooks';
-import { fetchPost } from './actions/posts.actions';
 import Login from './layout/Login';
 import SignIn from './layout/SignIn';
 import history from './history';
@@ -45,17 +44,11 @@ function App() {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      try {
-        await dispatch(fetchPost()).catch();
-      } catch {
-        setIsLoading(false);
-        history.push('/error500');
-      }
       await dispatch(isAuthenticated()).catch().finally(() => {
         setIsLoading(false);
       });
     })();
-  }, []);
+  }, [dispatch]);
 
   if (isLoading) {
     return <LoadingPage />

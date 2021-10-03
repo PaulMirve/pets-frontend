@@ -6,13 +6,21 @@ import history from '../history';
 import { useAppSelector, useAppDispatch } from '../hooks/hooks';
 import { fetchPost } from '../actions/posts.actions';
 const Landing = () => {
-    const posts = useAppSelector(state => state.posts);
+    const { posts, count } = useAppSelector(state => state.posts);
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
     useEffect(() => {
+        (async () => {
+            try {
+                await dispatch(fetchPost()).catch();
+            } catch {
+                history.push('/error500');
+            }
+        })();
         document.title = "Pets";
-    });
+
+    },[dispatch]);
 
     const onSeeMoreClick = async () => {
         dispatch(fetchPost(5, Object.values(posts).length));
@@ -27,7 +35,9 @@ const Landing = () => {
                     })
                 }
                 <div className="landing__more">
-                    <button onClick={onSeeMoreClick}>See more...</button>
+                    {
+                        count === Object.values(posts).length ? "There are not most posts to see" : <button onClick={onSeeMoreClick}>  See more...</button>
+                    }
                 </div>
             </div>
             <div className="landing__news-container">

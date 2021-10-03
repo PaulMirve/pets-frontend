@@ -7,7 +7,7 @@ import { fetchPosts as fetchposts, postPost as _postPost } from "../reducers/pos
 export const fetchPost = (limit: number = 5, offset: number = 0) => {
     return async (dispatch: Dispatch) => {
         const response = await api.get(`/api/posts?limit=${limit}&offset=${offset}`);
-        dispatch(fetchposts(response.data.posts));
+        dispatch(fetchposts(response.data));
     }
 }
 
