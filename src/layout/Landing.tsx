@@ -52,7 +52,7 @@ const Landing = () => {
                             <Heading underline type="subtitle">{t("landing.new_posts")}</Heading>
                             {
                                 Object.values(posts).slice(0, 8).map(post => {
-                                    return <h5 onClick={() => history.push(`/p/${post.public_id}`)} key={post.public_id}>{post.description}</h5>
+                                    return <h5 onClick={() => history.push(`/p/${post.public_id}`)} key={post.public_id}>{post.description.length > 30 ? ` ${post.description.slice(0, 30)}...` : post.description}</h5>
                                 })
                             }
                         </div>
@@ -60,7 +60,7 @@ const Landing = () => {
                             <Heading underline type="subtitle">{t("landing.most_liked_photos")}</Heading>
                             {
                                 Object.values(posts).sort((a, b) => b.likeCount - a.likeCount).slice(0, 8).map(post => {
-                                    return <h5 onClick={() => history.push(`/p/${post.public_id}`)} key={post.public_id}>{post.description}</h5>
+                                    return <h5 onClick={() => history.push(`/p/${post.public_id}`)} key={post.public_id}>{post.description.length > 30 ? ` ${post.description.slice(0, 30)}...` : post.description}</h5>
                                 })
                             }
                         </div>
