@@ -58,7 +58,7 @@ const AddPhoto = () => {
                 <div className="add-photo__container">
                     {file ? <img src={file} alt="Selected item" className="add-photo__img" /> : <IconImageOutline className="add-photo__img" />}
                     <label htmlFor="addFileBtn" className="add-photo__custom">{t("add_photo.add_button")}</label>
-                    <input onChange={handleChange} id="addFileBtn" type="file" className="add-photo__btn" accept=".jpg, .jpeg, .png" />
+                    <input onChange={handleChange} id="addFileBtn" type="file" className="add-photo__btn"/>
                     <TextArea placeholder={t("add_photo.description")} value={description} onChange={e => setDescription(e.target.value)} className="add-photo__description" name="description" id="description" cols={30} rows={10} />
                     <Button onClick={onUpload} disabled={isButtonEnabled()} className="add-photo__upload" fullwidth style={{ marginTop: '2rem' }}>{t("add_photo.upload_button")}</Button>
                 </div>

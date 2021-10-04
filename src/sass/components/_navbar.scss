@@ -9,6 +9,10 @@
     background-color: $color-dark;
     z-index: 10;
 
+    @include respond(tab-port){
+        padding: 1em 2em;
+    }
+
     &__container{
         display: flex;
         align-items: center;
