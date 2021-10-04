@@ -12,6 +12,12 @@
     transition: opacity 0.2s ease-in;
     z-index: 10;
 
+    @include respond(tab-port){
+        top: 2.5rem;
+        left: initial;
+        right: 0;
+    }
+
     &--active{
         visibility: visible;
         opacity: 1;
