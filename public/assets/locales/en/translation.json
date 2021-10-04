@@ -1,7 +1,9 @@
 {
     "landing": {
         "new_posts": "New posts",
-        "most_liked_photos": "Most liked photos"
+        "most_liked_photos": "Most liked photos",
+        "see_more": "See more...",
+        "no_more_posts": "There are not more posts to see"
     },
     "add_photo": {
         "add_button": "Add photo",
@@ -11,8 +13,17 @@
     "comment_section": {
         "see_more": "See more..."
     },
+    "error_404":{
+        "message": "The link you entered doesn't exist. Please go back to the main page."
+    },
+    "error_500":{
+        "message": "An error has happen, please contact the administrator."
+    },
     "login_page": {
         "error": "Invalid username or password"
+    },
+    "post":{
+        "more_posts": "More post of this user"
     },
     "profile": "Profile",
     "logout": "Log out",
@@ -22,5 +33,6 @@
     "last_name": "Last name",
     "email": "Email",
     "login": "Login",
-    "sign_in": "Sign In"
+    "sign_in": "Sign In",
+    "add_comment": "Add a comment..."
 }

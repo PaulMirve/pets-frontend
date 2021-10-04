@@ -42,7 +42,7 @@ const Card: React.FC<IProps> = ({ post }) => {
                             value={comment}
                             onChange={e => setComment(e.target.value)}
                             type="text"
-                            placeholder="Add a comment..." />
+                            placeholder={t("add_comment")} />
                     </form>
 
                 </div>

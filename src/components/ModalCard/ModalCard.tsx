@@ -6,6 +6,7 @@ import IconSet from '../IconSet/IconSet';
 import PostImage from '../PostImage/PostImage';
 import useLike from '../../hooks/like.hook';
 import useComment from '../../hooks/comment.hook';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
     post: Post
@@ -14,6 +15,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
 
     const [comment, setComment, comments, commentsCount, addComment] = useComment(post);
     const [likeCount, isLiked, onLike] = useLike(post);
+    const { t } = useTranslation();
 
 
     const onCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -40,7 +42,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
                     </section>
                 </div>
                 <form onSubmit={onCommentSubmit}>
-                    <TextInput value={comment} onChange={e => setComment(e.target.value)} name="comment" variant="stylized" placeholder="Add a comment..." />
+                    <TextInput value={comment} onChange={e => setComment(e.target.value)} name="comment" variant="stylized" placeholder={t("add_comment")} />
                 </form>
             </div>
         </div>

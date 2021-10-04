@@ -6,6 +6,7 @@ import ModalCard from '../components/ModalCard/ModalCard'
 import PostLayout from '../components/PostLayout/PostLayout';
 import history from '../history';
 import TypePost from '../types/Post';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
 
@@ -17,6 +18,7 @@ interface RouteParams {
 
 const Post: React.FC<IProps> = () => {
     let { public_id }: RouteParams = useParams();
+    const { t } = useTranslation();
     const [post, setPost] = useState<TypePost>();
     const [_posts, setPosts] = useState<TypePost[]>([]);
 
@@ -40,7 +42,7 @@ const Post: React.FC<IProps> = () => {
     return (
         <div className="post">
             {post && <ModalCard post={post} />}
-            <Heading className="mb-sm mt-sm" underline type="subtitle">More post of this user</Heading>
+            <Heading className="mb-sm mt-sm" underline type="subtitle">{t("post.more_posts")}</Heading>
             <PostLayout removeActual={post} slice={6} posts={_posts} onPostClick={(post: TypePost) => { history.push(`/p/${post.public_id}`) }} />
         </div>
     )

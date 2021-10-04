@@ -1,7 +1,9 @@
 {
     "landing": {
         "new_posts": "Nuevas publicaciones",
-        "most_liked_photos": "Nuevas publicaciones"
+        "most_liked_photos": "Nuevas publicaciones",
+        "see_more": "Ver más...",
+        "no_more_posts": "No hay mas publicaciones por ver"
     },
     "add_photo": {
         "add_button": "Agregar photo",
@@ -14,6 +16,15 @@
     "login_page": {
         "error": "El nombre de usuario o la contraseña son invalidos"
     },
+    "error_404":{
+        "message": "El enlace que ha ingresado no existe. Por favor regrese a la página principal."
+    },
+    "error_500":{
+        "message": "Ha ocurrido un error. Por favor contacte con el administrador."
+    },
+    "post":{
+        "more_posts": "Más publicaciones de este usuario"
+    },
     "profile": "Perfil",
     "logout": "Salir",
     "username": "Nombre de usuario",
@@ -22,5 +33,6 @@
     "last_name": "Apellido",
     "email": "Email",
     "login": "Iniciar sesión",
-    "sign_in": "Registrarse"
+    "sign_in": "Registrarse",
+    "add_comment": "Agregar un comentario..."
 }
