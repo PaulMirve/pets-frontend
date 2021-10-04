@@ -685,6 +685,12 @@ body {
   padding: 4rem;
   border-radius: 5px;
 }
+@media (max-width: 56.25em) {
+  .add-photo__container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "img" "custom" "description" "upload";
+  }
+}
 .add-photo__custom {
   grid-area: custom;
   background-color: #ff006e;
@@ -772,6 +778,11 @@ body {
 
 .post {
   padding: 15vh 22vw;
+}
+@media (max-width: 56.25em) {
+  .post {
+    padding: 15vh 2vw;
+  }
 }
 
 .error404 {

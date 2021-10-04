@@ -3,7 +3,7 @@
     place-items: center;
     &__container {
         display: grid;
-        grid-template-columns: repeat(5, 1fr );
+        grid-template-columns: repeat(5, 1fr);
         grid-template-areas:
             "img img description description description"
             "custom custom description description description"
@@ -12,6 +12,15 @@
         border: 3px solid $color-primary;
         padding: 4rem;
         border-radius: 5px;
+
+        @include respond(tab-port) {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "img"
+                "custom"
+                "description"
+                "upload";
+        }
     }
 
     &__custom {
