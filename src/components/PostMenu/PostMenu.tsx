@@ -19,17 +19,18 @@ const PostMenu = ({ post }: Props) => {
     return (
         <div className={`post-menu`}>
             <IconElipsisVertical onClick={() => setIsMenuOpen(!isMenuOpen)} />
-            <Menu className="post-menu__menu" open={isMenuOpen}>
-                <div onClick={() => setEditModalOpen(true)} className="post-menu__menu-item">
-                    <IconCreateOutline /> Edit
-                </div>
-                <div onClick={() => setDeleteModalOpen(true)} className="post-menu__menu-item">
-                    <IconTrashOutline /> Delete
-                </div>
-            </Menu>
+            {isMenuOpen &&
+                <Menu className="post-menu__menu" open={isMenuOpen}>
+                    <div onClick={() => setEditModalOpen(true)} className="post-menu__menu-item">
+                        <IconCreateOutline /> Edit
+                    </div>
+                    <div onClick={() => setDeleteModalOpen(true)} className="post-menu__menu-item">
+                        <IconTrashOutline /> Delete
+                    </div>
+                </Menu>}
 
-            <EditModal isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} description={post.description} onCancel={() => setEditModalOpen(false)} onConfirm={() => { }} />
-            <DeleteModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onCancel={() => setDeleteModalOpen(false)} onConfirm={() => { }} />
+            {editModalOpen && <EditModal isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} description={post.description} onCancel={() => setEditModalOpen(false)} onConfirm={() => { }} />}
+            {deleteModalOpen && <DeleteModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onCancel={() => setDeleteModalOpen(false)} onConfirm={() => { }} />}
         </div>
     )
 }
