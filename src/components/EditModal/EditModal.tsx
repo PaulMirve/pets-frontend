@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import api from '../../api/api';
+import Post from '../../types/Post';
 import Button from '../Button/Button'
 import TextArea from '../Form/TextArea'
 import Modal from '../Modal/Modal';
@@ -8,15 +10,21 @@ interface Props {
     description: string,
     isOpen: boolean,
     onClose: () => void,
-    onConfirm: (value: string) => void
+    onConfirm: (value: string) => void,
+    post: Post
 }
 
-const EditModal = ({ onClose, isOpen, description, onCancel, onConfirm }: Props) => {
+const EditModal = ({ post, onClose, isOpen, description, onCancel, onConfirm }: Props) => {
     const [value, setValue] = useState<string>(description);
 
     const onConfirmButtonClicked = () => {
         onConfirm(value);
         onClose();
+        api.put(`/api/posts/c/${post.public_id}`, { description: value }, {
+            headers: {
+                "Authorization": localStorage.getItem('user')
+            }
+        });
     }
     return (
         <Modal size="sm" visible={isOpen} onClose={onClose} >

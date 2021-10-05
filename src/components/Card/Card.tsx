@@ -9,7 +9,6 @@ import useComment from '../../hooks/comment.hook';
 import TextInput from '../Form/TextInput';
 import Comment from '../Comment/Comment';
 import PostMenu from '../PostMenu/PostMenu';
-import useDescription from '../../hooks/description.hook';
 
 interface IProps {
     post: Post

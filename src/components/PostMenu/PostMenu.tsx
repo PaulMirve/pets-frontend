@@ -35,7 +35,7 @@ const PostMenu = ({ onEditConfirm, post, description }: Props) => {
                         </div>
                     </Menu>}
 
-                {editModalOpen && <EditModal isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} description={description} onCancel={() => setEditModalOpen(false)} onConfirm={onEditConfirm} />}
+                {editModalOpen && <EditModal post={post} isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} description={description} onCancel={() => setEditModalOpen(false)} onConfirm={onEditConfirm} />}
                 {deleteModalOpen && <DeleteModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onCancel={() => setDeleteModalOpen(false)} onConfirm={() => { }} />}
             </div>
         )
