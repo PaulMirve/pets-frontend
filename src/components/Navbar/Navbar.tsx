@@ -9,13 +9,13 @@ import IconPersonCircleOutline from '../../svg/IconPersonCircleOutline';
 import IconAddCircleOutline from '../../svg/IconAddCircleOutline';
 import Menu from '../Menu/Menu';
 import { useTranslation } from 'react-i18next';
-interface IProps {
+import IconLanguageOutline from '../../svg/IconLanguageOutline';
+import IconHelpCircleOutline from '../../svg/IconHelpCircleOutline';
 
-}
-
-const Navbar: React.FC<IProps> = () => {
+const Navbar = () => {
     const { t } = useTranslation();
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [languagesOpen, setLanguagesOpen] = useState<boolean>(false);
     let user: User | null = useAppSelector(state => state.user);
 
     const getInitials = () => {
@@ -33,6 +33,11 @@ const Navbar: React.FC<IProps> = () => {
         setMenuOpen(!menuOpen);
     }
 
+    const updateLanguage = (lang: "en" | "es") => {
+        document.cookie = `i18next=${lang}`;
+        window.location.reload();
+    }
+
     return (
         <nav className="navbar">
             <div onClick={() => history.push('/')} className="navbar__container">
@@ -40,6 +45,19 @@ const Navbar: React.FC<IProps> = () => {
                 <h3 className="navbar__title">Pets</h3>
             </div>
             <div className="navbar__actions">
+                <span>
+                    <IconLanguageOutline onClick={e => { setLanguagesOpen(!languagesOpen) }} className="navbar__icon" />
+                    <Menu open={languagesOpen}>
+                        <button onClick={() => updateLanguage("es")} className="navbar__menu-item">
+                            Spanish
+                        </button>
+                        <button style={{ marginTop: '1rem' }} onClick={() => updateLanguage("en")} className="navbar__menu-item">
+                            English
+                        </button>
+                    </Menu>
+                </span>
+
+                <IconHelpCircleOutline className="navbar__icon" />
                 {user ?
                     <>
                         <IconAddCircleOutline onClick={() => history.push('/add')} className="navbar__icon" />

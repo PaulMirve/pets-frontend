@@ -9,41 +9,45 @@
     background-color: $color-dark;
     z-index: 10;
 
-    @include respond(tab-port){
+    @include respond(tab-port) {
         padding: 1em 2em;
     }
 
-    &__container{
+    &__container {
         display: flex;
         align-items: center;
         gap: 0.5rem;
         cursor: pointer;
     }
 
-    &__logo{
+    &__logo {
         width: 4rem;
         height: 4rem;
     }
 
-    &__title{
+    &__title {
         color: $color-primary;
         font-family: $font-primary;
         font-size: 3.6rem;
     }
 
-    &__icon{
+    &__icon {
         width: 3rem;
         fill: $color-primary;
         color: $color-primary;
         cursor: pointer;
     }
 
-    &__actions{
+    &__actions {
         display: flex;
-        gap: 2rem;
+        gap: 0.5rem;
+
+        & span {
+            position: relative;
+        }
     }
 
-    &__user{
+    &__user {
         position: relative;
         background-color: $color-white;
         border-radius: 50%;
@@ -55,9 +59,10 @@
         font-size: 1.4rem;
         color: $color-primary;
         cursor: pointer;
+        margin-left: 1rem;
     }
 
-    &__menu-item{
+    &__menu-item {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -68,7 +73,7 @@
         cursor: pointer;
         font-size: 1.4rem;
 
-        & svg{
+        & svg {
             width: 2.5rem;
         }
     }

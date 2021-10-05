@@ -140,7 +140,10 @@ body {
 }
 .navbar__actions {
   display: flex;
-  gap: 2rem;
+  gap: 0.5rem;
+}
+.navbar__actions span {
+  position: relative;
 }
 .navbar__user {
   position: relative;
@@ -154,6 +157,7 @@ body {
   font-size: 1.4rem;
   color: #ff006e;
   cursor: pointer;
+  margin-left: 1rem;
 }
 .navbar__menu-item {
   display: flex;
