@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import history from '../../history';
 import Post from '../../types/Post';
 import IconSet from '../IconSet/IconSet';
@@ -9,6 +9,7 @@ import useComment from '../../hooks/comment.hook';
 import TextInput from '../Form/TextInput';
 import Comment from '../Comment/Comment';
 import PostMenu from '../PostMenu/PostMenu';
+import useDescription from '../../hooks/description.hook';
 
 interface IProps {
     post: Post
@@ -16,6 +17,7 @@ interface IProps {
 const Card: React.FC<IProps> = ({ post }) => {
     const [likesCount, postIsLiked, onLike] = useLike(post);
     const [comment, setComment, comments, commentCount, addComment] = useComment(post);
+    const [description, setDescription] = useState<string>(post.description);
     const { t } = useTranslation();
     return (
         <div className="card">
@@ -25,12 +27,12 @@ const Card: React.FC<IProps> = ({ post }) => {
                     {post.user.username}
                 </h5>
                 <div className="card__menu-container">
-                    <PostMenu post={post} />
+                    <PostMenu onEditConfirm={(value: string) => setDescription(value)} description={description} post={post} />
                 </div>
             </div>
 
             <IconSet onLikeClick={onLike} isLiked={postIsLiked} likesCount={likesCount} commentCount={commentCount} />
-            <div className="card__description">{post.description}</div>
+            <div className="card__description">{description}</div>
             <div className={`comment-section`}>
                 <div className="comment-section__comments">
                     {
