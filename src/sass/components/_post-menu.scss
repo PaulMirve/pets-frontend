@@ -1,0 +1,31 @@
+.post-menu {
+    & svg {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-primary;
+        cursor: pointer;
+    }
+
+    &__menu {
+        top: 1.8rem !important;
+        left: 1.2rem !important;
+    }
+
+    &__menu-item {
+        cursor: pointer;
+
+        &:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+
+        & svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 .card {
     display: grid;
-    grid-template-columns:  minmax(min-content, 1fr);
+    grid-template-columns: minmax(min-content, 1fr);
     grid-template-rows: repeat(3, auto) 1fr;
     grid-template-areas:
         "img"
@@ -35,9 +35,27 @@
         grid-area: 1 / 1 / 2 / 2;
     }
 
+    &__heading {
+        padding: 0.5em 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu-container {
+        position: relative;
+
+        & svg {
+            width: 2rem;
+            height: 2rem;
+            fill: $color-primary;
+            cursor: pointer;
+        }
+    }
+
     &__username {
         grid-area: username;
-        font-size: 2.4rem;
+        font-size: 1.8rem;
         cursor: pointer;
     }
 
@@ -67,7 +85,7 @@
     }
 
     &__description {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         word-break: break-word;
         width: 100%;
     }

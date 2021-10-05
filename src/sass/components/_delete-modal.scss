@@ -1,0 +1,15 @@
+.delete-modal {
+    padding: 3em;
+    text-align: center;
+
+    & h2{
+        font-size: 2.4rem;
+        margin-bottom: 4rem;
+    }
+
+    &__actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}

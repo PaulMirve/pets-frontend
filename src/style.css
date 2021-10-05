@@ -199,9 +199,24 @@ body {
   object-fit: cover;
   grid-area: 1/1/2/2;
 }
+.card__heading {
+  padding: 0.5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__menu-container {
+  position: relative;
+}
+.card__menu-container svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #ff006e;
+  cursor: pointer;
+}
 .card__username {
   grid-area: username;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   cursor: pointer;
 }
 .card__description {
@@ -225,7 +240,7 @@ body {
   width: 2rem;
 }
 .card__description {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   word-break: break-word;
   width: 100%;
 }
@@ -290,6 +305,9 @@ body {
   font-size: 1.8rem;
   padding: 1em;
   font-family: "Roboto", sans-serif;
+}
+.form__textarea--fullwidth {
+  width: 100%;
 }
 
 .btn {
@@ -393,6 +411,12 @@ body {
   width: min(900px, 90%);
   border-radius: 5px;
   overflow: hidden;
+}
+.modal__content--md {
+  width: 40%;
+}
+.modal__content--sm {
+  width: 30%;
 }
 
 .comment-section--extended {
@@ -611,6 +635,54 @@ body {
     transform: scale(1.1);
   }
 }
+.edit-modal {
+  padding: 3em;
+}
+.edit-modal__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.delete-modal {
+  padding: 3em;
+  text-align: center;
+}
+.delete-modal h2 {
+  font-size: 2.4rem;
+  margin-bottom: 4rem;
+}
+.delete-modal__actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.post-menu svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #ff006e;
+  cursor: pointer;
+}
+.post-menu__menu {
+  top: 1.8rem !important;
+  left: 1.2rem !important;
+}
+.post-menu__menu-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+}
+.post-menu__menu-item:not(:first-child) {
+  margin-top: 0.5rem;
+}
+.post-menu__menu-item svg {
+  width: 2rem;
+  height: 2rem;
+}
+
 .landing {
   display: grid;
   grid-template-columns: 1fr 0.5fr;

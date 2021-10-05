@@ -1,8 +1,12 @@
 import React from 'react'
 
-const TextArea: React.FC<React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>> = ({ className, ...rest }) => {
+interface Props extends React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+    fullwidth?: boolean
+}
+
+const TextArea = ({ fullwidth, className, ...rest }: Props) => {
     return (
-        <textarea className={`form__textarea ${className}`} {...rest} />
+        <textarea className={`form__textarea ${className} ${fullwidth ? "form__textarea--fullwidth" : ""}`} {...rest} />
     )
 }
 

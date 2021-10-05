@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import useComment from '../../hooks/comment.hook';
 import TextInput from '../Form/TextInput';
 import Comment from '../Comment/Comment';
+import PostMenu from '../PostMenu/PostMenu';
 
 interface IProps {
     post: Post
@@ -19,7 +20,15 @@ const Card: React.FC<IProps> = ({ post }) => {
     return (
         <div className="card">
             <PostImage src={post.img} alt={post.public_id} frameProps={{ onDoubleClick: onLike }} />
-            <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">{post.user.username}</h5>
+            <div className="card__heading">
+                <h5 onClick={() => history.push(`/u/${post.user.username}`)} className="card__username">
+                    {post.user.username}
+                </h5>
+                <div className="card__menu-container">
+                    <PostMenu post={post} />
+                </div>
+            </div>
+
             <IconSet onLikeClick={onLike} isLiked={postIsLiked} likesCount={likesCount} commentCount={commentCount} />
             <div className="card__description">{post.description}</div>
             <div className={`comment-section`}>
