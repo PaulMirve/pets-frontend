@@ -24,10 +24,20 @@
 
         &--md {
             width: 40%;
+
+            @include respond(tab-port) {
+                width: 90%;
+            }
         }
 
         &--sm {
             width: 30%;
+
+            @include respond(tab-port) {
+                width: 90%;
+            }
         }
+
+
     }
 }

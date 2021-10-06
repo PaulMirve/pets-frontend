@@ -421,8 +421,18 @@ body {
 .modal__content--md {
   width: 40%;
 }
+@media (max-width: 56.25em) {
+  .modal__content--md {
+    width: 90%;
+  }
+}
 .modal__content--sm {
   width: 30%;
+}
+@media (max-width: 56.25em) {
+  .modal__content--sm {
+    width: 90%;
+  }
 }
 
 .comment-section--extended {
