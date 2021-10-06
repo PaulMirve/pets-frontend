@@ -8,7 +8,7 @@ import useLike from '../../hooks/like.hook';
 import useComment from '../../hooks/comment.hook';
 import { useTranslation } from 'react-i18next';
 import PostMenu from '../PostMenu/PostMenu';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '../../api/api';
 import history from '../../history';
 
@@ -21,6 +21,10 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
     const [likeCount, isLiked, onLike] = useLike(post);
     const [description, setDescription] = useState<string>(post.description);
     const { t } = useTranslation();
+
+    useEffect(() => {
+        setDescription(post.description);
+    }, [post]);
 
 
     const onCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
