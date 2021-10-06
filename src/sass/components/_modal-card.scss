@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 30%;
     border-radius: 5px;
-    overflow: hidden;
 
     @include respond(tab-port){
         grid-template-columns: 1fr;
@@ -49,6 +48,11 @@
     &__headings {
         display: grid;
         place-items: center;
+
+        & h1{
+            display: flex;
+            align-items: center;
+        }
 
         & p{
             font-size: 1.4rem;

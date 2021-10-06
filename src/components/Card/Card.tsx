@@ -9,6 +9,8 @@ import useComment from '../../hooks/comment.hook';
 import TextInput from '../Form/TextInput';
 import Comment from '../Comment/Comment';
 import PostMenu from '../PostMenu/PostMenu';
+import { useAppDispatch } from '../../hooks/hooks';
+import { deletePost } from '../../actions/posts.actions';
 
 interface IProps {
     post: Post
@@ -18,6 +20,12 @@ const Card: React.FC<IProps> = ({ post }) => {
     const [comment, setComment, comments, commentCount, addComment] = useComment(post);
     const [description, setDescription] = useState<string>(post.description);
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+
+    const onPostDelete = () => {
+        dispatch(deletePost(post.public_id));
+    }
+
     return (
         <div className="card">
             <PostImage src={post.img} alt={post.public_id} frameProps={{ onDoubleClick: onLike }} />
@@ -26,7 +34,7 @@ const Card: React.FC<IProps> = ({ post }) => {
                     {post.user.username}
                 </h5>
                 <div className="card__menu-container">
-                    <PostMenu onEditConfirm={(value: string) => setDescription(value)} description={description} post={post} />
+                    <PostMenu onPostDelete={onPostDelete} onEditConfirm={(value: string) => setDescription(value)} description={description} post={post} />
                 </div>
             </div>
 

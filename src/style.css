@@ -380,6 +380,9 @@ body {
   transition: opacity 0.2s ease-in;
   z-index: 10;
 }
+.menu--dark {
+  background-color: #404258;
+}
 @media (max-width: 56.25em) {
   .menu {
     top: 2.5rem;
@@ -414,7 +417,6 @@ body {
   background-color: white;
   width: min(900px, 90%);
   border-radius: 5px;
-  overflow: hidden;
 }
 .modal__content--md {
   width: 40%;
@@ -466,6 +468,7 @@ body {
 .comment {
   display: grid;
   grid-template-columns: 1fr auto;
+  align-items: start;
   font-size: 1.2rem;
 }
 .comment__container {
@@ -496,7 +499,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 30%;
   border-radius: 5px;
-  overflow: hidden;
 }
 @media (max-width: 56.25em) {
   .modal-card {
@@ -540,6 +542,10 @@ body {
 .modal-card__headings {
   display: grid;
   place-items: center;
+}
+.modal-card__headings h1 {
+  display: flex;
+  align-items: center;
 }
 .modal-card__headings p {
   font-size: 1.4rem;
@@ -640,7 +646,7 @@ body {
   }
 }
 .edit-modal {
-  padding: 3em;
+  padding: 1em;
 }
 .edit-modal__actions {
   display: grid;
@@ -649,7 +655,7 @@ body {
 }
 
 .delete-modal {
-  padding: 3em;
+  padding: 1em;
   text-align: center;
 }
 .delete-modal h2 {
@@ -662,6 +668,11 @@ body {
   gap: 1rem;
 }
 
+.post-menu {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
 .post-menu svg {
   width: 2rem;
   height: 2rem;

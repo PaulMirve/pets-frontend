@@ -7,6 +7,10 @@ import PostImage from '../PostImage/PostImage';
 import useLike from '../../hooks/like.hook';
 import useComment from '../../hooks/comment.hook';
 import { useTranslation } from 'react-i18next';
+import PostMenu from '../PostMenu/PostMenu';
+import { useState } from 'react';
+import api from '../../api/api';
+import history from '../../history';
 
 interface IProps {
     post: Post
@@ -15,6 +19,7 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
 
     const [comment, setComment, comments, commentsCount, addComment] = useComment(post);
     const [likeCount, isLiked, onLike] = useLike(post);
+    const [description, setDescription] = useState<string>(post.description);
     const { t } = useTranslation();
 
 
@@ -23,13 +28,31 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
         addComment();
     }
 
+    const onDescriptionEdit = (value: string) => {
+        setDescription(value);
+    }
+
+    const onPostDelete = async () => {
+        await api.delete<string>(`/api/posts/${post.public_id}`, {
+            headers: {
+                "Authorization": localStorage.getItem('user')
+            }
+        });
+
+        history.push(`/`);
+
+    }
+
     return (
         <div className="modal-card">
             <PostImage src={post.img} alt={post.public_id} frameProps={{ onDoubleClick: onLike }} />
             <div className="modal-card__content">
                 <div className="modal-card__headings">
-                    <Heading type="subtitle">{post.user.username}</Heading>
-                    <p>{post.description}</p>
+                    <Heading type="subtitle">
+                        {post.user.username}
+                        <PostMenu color="dark" onPostDelete={onPostDelete} description={description} post={post} onEditConfirm={onDescriptionEdit} />
+                    </Heading>
+                    <p>{description}</p>
                     <IconSet onLikeClick={onLike} likesCount={likeCount} isLiked={isLiked} commentCount={commentsCount} />
                 </div>
                 <div className="modal-card__comments">

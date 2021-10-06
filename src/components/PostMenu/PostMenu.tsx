@@ -12,10 +12,12 @@ import Menu from '../Menu/Menu'
 interface Props {
     post: Post,
     description: string,
-    onEditConfirm: (value: string) => void
+    onEditConfirm: (value: string) => void,
+    onPostDelete: () => void,
+    color?: "light" | "dark"
 }
 
-const PostMenu = ({ onEditConfirm, post, description }: Props) => {
+const PostMenu = ({ color, onPostDelete, onEditConfirm, post, description }: Props) => {
     let user: User | null = useAppSelector(state => state.user ? state.user as User : null);
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [editModalOpen, setEditModalOpen] = useState<boolean>(false);
@@ -26,7 +28,7 @@ const PostMenu = ({ onEditConfirm, post, description }: Props) => {
             <div className={`post-menu`}>
                 <IconElipsisVertical onClick={() => setIsMenuOpen(!isMenuOpen)} />
                 {isMenuOpen &&
-                    <Menu className="post-menu__menu" open={isMenuOpen}>
+                    <Menu color={color} className="post-menu__menu" open={isMenuOpen}>
                         <div onClick={() => setEditModalOpen(true)} className="post-menu__menu-item">
                             <IconCreateOutline /> Edit
                         </div>
@@ -36,7 +38,7 @@ const PostMenu = ({ onEditConfirm, post, description }: Props) => {
                     </Menu>}
 
                 {editModalOpen && <EditModal post={post} isOpen={editModalOpen} onClose={() => setEditModalOpen(false)} description={description} onCancel={() => setEditModalOpen(false)} onConfirm={onEditConfirm} />}
-                {deleteModalOpen && <DeleteModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onCancel={() => setDeleteModalOpen(false)} onConfirm={() => { }} />}
+                {deleteModalOpen && <DeleteModal isOpen={deleteModalOpen} onClose={() => setDeleteModalOpen(false)} onCancel={() => setDeleteModalOpen(false)} onConfirm={onPostDelete} />}
             </div>
         )
     } else {

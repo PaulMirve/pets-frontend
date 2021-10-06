@@ -14,6 +14,12 @@ interface PostAction {
     payload: Post
 }
 
+interface DeleteAction {
+    type: string,
+    payload: string
+}
+
+
 interface State {
     count: number,
     posts: { [key: string]: Post }
@@ -39,6 +45,14 @@ const postSlice = createSlice({
             newState.count = newState.count + 1;
             return { ...newState };
         },
+        deletePost: (state, { type, payload }: DeleteAction): State => {
+            let newState: State = { count: state.count, posts: current(state).posts };
+            const posts = Object.assign({}, newState.posts);
+            delete posts[payload];
+            newState.posts = posts;
+            newState.count = newState.count - 1;
+            return { ...newState };
+        },
         addComment: (state, { type, payload }: PostAction) => {
             let newState: State = { count: state.count, posts: { ...current(state).posts } };
             newState.posts[payload.public_id] = payload
@@ -56,6 +70,7 @@ export const {
     fetchPosts,
     postPost,
     addComment,
-    addCommentLike
+    addCommentLike,
+    deletePost
 } = postSlice.actions
 export default postSlice.reducer

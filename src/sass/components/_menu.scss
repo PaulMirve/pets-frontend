@@ -12,6 +12,10 @@
     transition: opacity 0.2s ease-in;
     z-index: 10;
 
+    &--dark{
+        background-color: $color-dark-2;
+    }
+
     @include respond(tab-port){
         top: 2.5rem;
         left: initial;
