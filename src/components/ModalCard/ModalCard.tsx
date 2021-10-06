@@ -21,12 +21,10 @@ const ModalCard: React.FC<IProps> = ({ post }) => {
     const [likeCount, isLiked, onLike] = useLike(post);
     const [description, setDescription] = useState<string>(post.description);
     const { t } = useTranslation();
-
     useEffect(() => {
         setDescription(post.description);
     }, [post]);
-
-
+    
     const onCommentSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         addComment();

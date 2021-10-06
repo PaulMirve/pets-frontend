@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import api from "../api/api";
 import history from "../history";
 import Post from "../types/Post";
@@ -9,6 +9,11 @@ const useLike = (post: Post): [number, boolean, () => void] => {
     let user: User | null = useAppSelector(state => state.user);
     const [likesCount, setLikesCount] = useState<number>(post.likeCount);
     const [postIsLiked, setPostIsLiked] = useState<boolean>(post.likes.some(_user => _user.username === user?.username));
+
+    useEffect(() => {
+        setLikesCount(post.likeCount);
+        setPostIsLiked(post.likes.some(_user => _user.username === user?.username));
+    }, [post]);
 
     const onLike = (): void => {
         if (user) {
