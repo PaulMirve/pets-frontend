@@ -1,46 +1,12 @@
-# Getting Started with Create React App
+# Description
+Frontend project of Pets, a social network heavily influenced by Instagram to share photos of our pets.. It has multi language support and responsive design.
+The backend of this apps can be found here: 
+# Technologies
+The frontend of this app is builded with **React** using **Typescript** and **Redux** for the state managment and **React Router** for the routing of the pages. The styling of the components is made with **Sass**. It uses **Axios** for the REST requests to the backend.
+# Photos
+![image](https://user-images.githubusercontent.com/47708181/137202144-81df1767-7549-4c4c-b757-a92856341178.png)
+![image](https://user-images.githubusercontent.com/47708181/137202171-9dfa21fc-b8d7-4028-9b65-cef40984623d.png)
+![image](https://user-images.githubusercontent.com/47708181/137202200-6805dad8-7afa-4168-9bd5-140ecc7e313a.png)
+![image](https://user-images.githubusercontent.com/47708181/137202222-16a7765b-fa24-45f5-87fa-40a08a995a2a.png)
+![image](https://user-images.githubusercontent.com/47708181/137202244-76535939-f90d-458e-b99d-d09659ef2d02.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
